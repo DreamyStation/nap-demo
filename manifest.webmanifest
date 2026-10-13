@@ -1,0 +1,24 @@
+{
+  "id": "./",
+  "name": "NAP – Negócio Aprimorado",
+  "short_name": "NAP",
+  "description": "Clientes, orçamentos, recebimentos e caixa para MEIs e pequenos prestadores de serviço.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1f5fd6",
+  "theme_color": "#1f5fd6",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Novo orçamento", "short_name": "Orçamento", "url": "./#/orcamentos/novo", "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Novo cliente", "short_name": "Cliente", "url": "./#/clientes/novo", "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

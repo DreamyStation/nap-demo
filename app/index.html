@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-OtaqhRocDQFW64K+mjf58ThWhDIQoNvl+TschmmhjXM='; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="NAP, Negócio Aprimorado: clientes, orçamentos, recebimentos e caixa para MEIs e pequenos prestadores de serviço." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0e11" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" href="./favicon-64.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="NAP" />
+    <title>NAP · Negócio Aprimorado</title>
+    <script>
+      // Aplica o tema salvo ANTES da primeira pintura (evita o "flash" de tema errado).
+      // A mesma regra vive em src/lib/theme.ts; aqui sem dependências e sem falhar.
+      ;(function () {
+        try {
+          var pref = 'system'
+          try {
+            var salvo = window.localStorage.getItem('nap.theme')
+            if (salvo === 'light' || salvo === 'dark' || salvo === 'system') pref = salvo
+          } catch (e) {}
+          var escuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          document.documentElement.dataset.theme = pref === 'system' ? (escuro ? 'dark' : 'light') : pref
+        } catch (e) {}
+        // Vidro: o padrão é "glass" (decisão de 11/10/2026; mesma regra de src/lib/glass.ts).
+        try {
+          var vidro = 'glass'
+          try {
+            var guardado = window.localStorage.getItem('nap.glass')
+            if (guardado === 'system' || guardado === 'solid' || guardado === 'glass') vidro = guardado
+          } catch (e) {}
+          if (vidro !== 'system') document.documentElement.dataset.glass = vidro
+        } catch (e) {}
+      })()
+    </script>
+    <script type="module" crossorigin src="./assets/index-C6kmc4NJ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DhQ2jiQH.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>O NAP precisa de JavaScript para funcionar. Ative o JavaScript no navegador e recarregue a página.</noscript>
+  </body>
+</html>

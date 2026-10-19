@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./dist-B4oU2jtd.js","./index-XxVWGd20.js","./index-LQnt8vwZ.css"])))=>i.map(i=>d[i]);
-import{a as e,c as t,i as n,n as r,o as i,r as a,s as o,t as s}from"./index-XxVWGd20.js";var c=e=>({id:e.id,name:e.name,createdAt:e.created_at,deletedAt:e.deleted_at,purgeOn:e.purge_on,openingBalance:e.opening_balance_cents===null||e.opening_balance_on===null?null:{cents:Number(e.opening_balance_cents),on:e.opening_balance_on}}),l=e=>({id:e.id,name:e.name,email:e.email,phone:e.phone,notes:e.notes,status:e.status,createdAt:e.created_at,updatedAt:e.updated_at}),u=e=>({...l(e),quoteCount:Number(e.quote_count)}),d=e=>({id:e.id,name:e.name,unit:e.unit,basePriceCents:e.base_price_cents,estCostCents:e.est_cost_cents,status:e.status,createdAt:e.created_at,updatedAt:e.updated_at}),f=e=>({id:e.id,kind:e.kind,amountCents:e.amount_cents,paidOn:e.paid_on,method:e.method,note:e.note,reversesId:e.reverses_id,createdAt:e.created_at}),p=e=>({id:e.id,orderId:e.order_id,quoteId:e.quote_id,quoteNumber:e.quote_number,clientId:e.client_id,clientName:e.client_name,number:e.number,kind:e.kind,kindIndex:e.kind_index,kindTotal:e.kind_total,dueDate:e.due_date,amountCents:e.amount_cents,paidCents:Number(e.paid_cents),canceled:e.canceled,payments:e.payments.map(f)}),m=e=>({id:e.id,description:e.description,category:e.category,amountCents:e.amount_cents,dueDate:e.due_date,notes:e.notes,canceled:e.canceled,paidCents:Number(e.paid_cents),createdAt:e.created_at,payments:e.payments.map(f)}),h=e=>({id:e.id,direction:e.direction,source:e.source,kind:e.kind,amountCents:e.amount_cents,occurredOn:e.occurred_on,quoteId:e.quote_id,quoteNumber:e.quote_number,clientName:e.client_name,receivableKind:e.receivable_kind,receivableIndex:e.receivable_index,receivableTotal:e.receivable_total,expenseId:e.expense_id,expenseDescription:e.expense_description,category:e.category,incomeId:e.income_id,incomeDescription:e.income_description,incomeCategory:e.income_category}),g=e=>({id:e.id,description:e.description,category:e.category,amountCents:Number(e.amount_cents),receivedOn:e.received_on,clientId:e.client_id,clientName:e.client_name,note:e.note,createdAt:e.created_at,reversed:e.reversed,reversal:e.reversal?{id:e.reversal.id,receivedOn:e.reversal.received_on,note:e.reversal.note,createdAt:e.reversal.created_at}:null}),_=e=>({kind:e.kind,on:e.on,amountCents:Number(e.amount_cents),clientName:e.client_name,quoteId:e.quote_id??null,quoteNumber:e.quote_number??null,description:e.description??null}),v=e=>({id:e.id,number:e.number,clientId:e.client_id,clientName:e.client_name,status:e.status,validUntil:e.valid_until,totalCents:e.total_cents,sentAt:e.sent_at,createdAt:e.created_at,updatedAt:e.updated_at});function y(e){return e.kind===`percent`?{tipo:`percent`,valor:e.bps}:e.kind===`fixed`?{tipo:`fixed`,valor:e.cents}:{tipo:`none`,valor:0}}function b(e,t){return e===`percent`?{kind:`percent`,bps:t}:e===`fixed`?{kind:`fixed`,cents:t}:{kind:`none`}}function x(e){let t=e.order?{id:e.order.id,status:e.order.status,approvedAt:e.order.approved_at,receivables:e.order.receivables.map(p)}:null;return{...v(e),client:{id:e.client_id,name:e.client_name,email:e.client_email,phone:e.client_phone,status:e.client_status},terms:e.terms,notes:e.notes,discount:b(e.discount_kind,Number(e.discount_value)),subtotalCents:e.subtotal_cents,discountCents:e.discount_cents,items:e.items.map(e=>({position:e.position,description:e.description,quantityMilli:e.quantity_milli,unitPriceCents:e.unit_price_cents,lineTotalCents:e.line_total_cents})),events:e.events.map(e=>({fromStatus:e.from_status,toStatus:e.to_status,at:e.at,confirmed:e.confirmed,system:e.system})),order:t}}var S=e=>({id:e.id,receivableId:e.receivable_id,state:e.state,scheduledFor:e.scheduled_for,note:e.note,createdAt:e.created_at}),ee=e=>({id:e.id,title:e.title,dueDate:e.due_date,clientId:e.client_id,clientName:e.client_name,notes:e.notes,doneAt:e.done_at,createdAt:e.created_at}),te=e=>({id:e.id,question:e.question,answer:e.answer,sourceKind:e.source_kind,sourceLabel:e.source_label,verifiedOn:e.verified_on,reviewOn:e.review_on,createdAt:e.created_at,updatedAt:e.updated_at}),ne=e=>({key:e.alert_key,state:e.state,until:e.until,reason:e.reason,updatedAt:e.updated_at}),C=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,w=e=>e&&C.test(e)?e:null;function T({chamar:t,aoGravar:n=()=>{},origem:r,migracoes:a,aposImportar:s}){async function f(e,n){try{return await t(e,n)}catch(e){throw o(e)}}async function b(e){let t=await e();return n(),t}async function T(){let e=await f(`current_company`);return e?c(e):null}async function E(){let e=await T();if(!e)throw new i(`nao_encontrado`,`Crie a sua empresa primeiro.`);return e.id}let D=e=>new i(`nao_encontrado`,e);return{company:{current:()=>T(),create:e=>b(async()=>{await f(`create_company`,{p_name:e});let t=await T();if(!t)throw new i(`desconhecido`,`Não foi possível criar a empresa.`);return t}),rename:e=>b(async()=>c(await f(`rename_company`,{p_name:e}))),setOpeningBalance:e=>b(async()=>{await f(`set_opening_balance`,{p_company:await E(),p_cents:e?.cents??null,p_on:e?.on??null});let t=await T();if(!t)throw D(`Empresa não encontrada.`);return t}),hasBusinessData:async()=>!!await f(`has_business_data`),importAll:e=>b(async()=>{let t=await f(`import_company_data`,{p_company:await E(),p_data:e});return await s?.().catch(()=>void 0),t}),exportAll:()=>b(async()=>f(`export_company_data`,{p_company:await E()})),requestDeletion:()=>b(async()=>{let t=await f(`request_company_deletion`,{p_company:await E()});return e(new Date(t))}),cancelDeletion:()=>b(async()=>{await f(`cancel_company_deletion`,{p_company:await E()})})},clients:{list:async(e={})=>(await f(`list_clients`,{p_status:e.status??`ativo`,p_search:e.search??null})).map(e=>u(e)),get:async e=>{if(!C.test(e))return null;let t=await f(`get_client`,{p_id:e});return t?l(t):null},create:e=>b(async()=>l(await f(`save_client`,{p_id:null,p_name:e.name,p_email:e.email??null,p_phone:e.phone??null,p_notes:e.notes??null}))),update:(e,t)=>b(async()=>{if(!C.test(e))throw D(`Cliente não encontrado.`);return l(await f(`save_client`,{p_id:e,p_name:t.name,p_email:t.email??null,p_phone:t.phone??null,p_notes:t.notes??null}))}),setStatus:(e,t)=>b(async()=>{if(!C.test(e))throw D(`Cliente não encontrado.`);return l(await f(`set_client_status`,{p_id:e,p_status:t}))})},services:{list:async(e={})=>(await f(`list_services`,{p_status:e.status??`ativo`,p_search:e.search??null})).map(d),get:async e=>{if(!C.test(e))return null;let t=await f(`get_service`,{p_id:e});return t?d(t):null},create:e=>b(async()=>d(await f(`save_service`,{p_id:null,p_name:e.name,p_unit:e.unit??``,p_base_price_cents:e.basePriceCents??null,p_est_cost_cents:e.estCostCents??null}))),update:(e,t)=>b(async()=>{if(!C.test(e))throw D(`Serviço não encontrado.`);return d(await f(`save_service`,{p_id:e,p_name:t.name,p_unit:t.unit??``,p_base_price_cents:t.basePriceCents??null,p_est_cost_cents:t.estCostCents??null}))}),setStatus:(e,t)=>b(async()=>{if(!C.test(e))throw D(`Serviço não encontrado.`);return d(await f(`set_service_status`,{p_id:e,p_status:t}))})},quotes:{list:async(e={})=>(await f(`list_quotes`,{p_status:e.status??`todos`,p_client:w(e.clientId),p_search:e.search??null})).map(v),get:async e=>{if(!C.test(e))return null;let t=await f(`get_quote`,{p_id:e});return t?x(t):null},save:e=>b(async()=>{let t=y(e.discount);return f(`save_quote`,{p_quote_id:e.id??null,p_client_id:e.clientId,p_valid_until:e.validUntil,p_terms:e.terms??null,p_notes:e.notes??null,p_discount_kind:t.tipo,p_discount_value:t.valor,p_items:e.items.map(e=>({description:e.description,quantity_milli:e.quantityMilli,unit_price_cents:e.unitPriceCents}))})}),transition:(e,t,n=!1)=>b(async()=>{if(!C.test(e))throw D(`Este orçamento não foi encontrado.`);return f(`transition_quote`,{p_quote_id:e,p_to:t,p_confirmed:n})}),approve:(e,t,n=!1)=>b(async()=>{if(!C.test(e))throw D(`Este orçamento não foi encontrado.`);return f(`approve_quote`,{p_quote_id:e,p_down_payment_cents:t.downPaymentCents,p_down_payment_due_date:t.downPaymentCents>0?t.downPaymentDueDate??null:null,p_installment_count:t.installmentCount,p_first_due_date:t.installmentCount>0?t.firstDueDate??null:null,p_confirmed:n})}),duplicate:e=>b(async()=>{if(!C.test(e))throw D(`Este orçamento não foi encontrado.`);return f(`duplicate_quote`,{p_quote_id:e})}),expireOverdue:async()=>{let e=Number(await f(`expire_overdue_quotes`,{p_company:await E()}));return e>0&&n(),e}},receivables:{list:async(e={})=>(await f(`list_receivables`,{p_quote:w(e.quoteId),p_client:w(e.clientId),p_order:null,p_include_canceled:e.includeCanceled??!1})).map(p),registerPayment:e=>b(async()=>{if(!C.test(e.receivableId))throw D(`Esta parcela não foi encontrada.`);return f(`register_payment`,{p_receivable_id:e.receivableId,p_amount_cents:e.amountCents,p_paid_on:e.paidOn??null,p_method:e.method??null,p_note:e.note??null})}),reversePayment:(e,t={})=>b(async()=>{if(!C.test(e))throw D(`Este pagamento não foi encontrado.`);return f(`reverse_payment`,{p_payment_id:e,p_paid_on:t.paidOn??null,p_note:t.note??null})})},collection:{states:async()=>(await f(`list_collection_states`)).map(S),history:async e=>C.test(e)?(await f(`list_collection_events`,{p_receivable_id:e})).map(S):[],setState:e=>b(async()=>{if(!C.test(e.receivableId))throw D(`Esta parcela não foi encontrada.`);let t=await f(`set_collection_state`,{p_receivable_id:e.receivableId,p_state:e.state,p_scheduled_for:e.scheduledFor??null,p_note:e.note??null});return t?S(t):null})},expenses:{list:async(e={})=>(await f(`list_expenses`,{p_include_canceled:e.includeCanceled??!1})).map(m),save:(e,t)=>b(async()=>{if(e!==void 0&&!C.test(e))throw D(`Esta despesa não foi encontrada.`);return f(`save_expense`,{p_expense_id:e??null,p_description:t.description,p_category:t.category,p_amount_cents:t.amountCents,p_due_date:t.dueDate,p_notes:t.notes??null})}),saveSeries:(e,t)=>b(async()=>{let n=await f(`create_expense_series`,{p_description:e.description,p_category:e.category,p_amount_cents:e.amountCents,p_first_due:e.dueDate,p_count:t,p_notes:e.notes??null});return Array.isArray(n)?n:n.replace(/^\{|\}$/g,``).split(`,`).filter(Boolean)}),pay:(e,t={})=>b(async()=>{if(!C.test(e))throw D(`Esta despesa não foi encontrada.`);return f(`pay_expense`,{p_expense_id:e,p_paid_on:t.paidOn??null,p_method:t.method??null,p_note:t.note??null})}),reversePayment:(e,t={})=>b(async()=>{if(!C.test(e))throw D(`Este pagamento não foi encontrado.`);return f(`reverse_expense_payment`,{p_payment_id:e,p_paid_on:t.paidOn??null,p_note:t.note??null})}),cancel:e=>b(async()=>{if(!C.test(e))throw D(`Esta despesa não foi encontrada.`);await f(`cancel_expense`,{p_expense_id:e})})},tasks:{list:async(e={})=>(await f(`list_tasks`,{p_include_done:e.includeDone??!1,p_client:w(e.clientId)})).map(ee),save:(e,t)=>b(async()=>{if(e!==void 0&&!C.test(e))throw D(`Este lembrete não foi encontrado.`);return f(`save_task`,{p_id:e??null,p_title:t.title,p_due:t.dueDate,p_client:t.clientId??null,p_notes:t.notes??null})}),setDone:(e,t)=>b(async()=>{if(!C.test(e))throw D(`Este lembrete não foi encontrado.`);await f(`set_task_done`,{p_id:e,p_done:t})}),remove:e=>b(async()=>{if(!C.test(e))throw D(`Este lembrete não foi encontrado.`);await f(`delete_task`,{p_id:e})})},answers:{list:async e=>(await f(`list_saved_answers`,{p_search:e??null})).map(te),save:(e,t)=>b(async()=>{if(e!==void 0&&!C.test(e))throw D(`Esta resposta guardada não foi encontrada.`);return f(`save_saved_answer`,{p_id:e??null,p_question:t.question,p_answer:t.answer,p_source_kind:t.sourceKind,p_source_label:t.sourceLabel??null,p_verified:t.verified,p_review_on:t.reviewOn})}),remove:e=>b(async()=>{if(!C.test(e))throw D(`Esta resposta guardada não foi encontrada.`);await f(`delete_saved_answer`,{p_id:e})})},system:{info:async()=>{let e=await f(`table_counts`);return{origem:r,migracoes:a?await a():[],contagens:e.map(e=>({tabela:e.tabela,n:Number(e.n)}))}}},alerts:{states:async()=>(await f(`list_alert_states`)).map(ne),snooze:(e,t,n)=>b(async()=>{await f(`snooze_alert`,{p_key:e,p_until:t,p_reason:n??null})}),dismiss:(e,t)=>b(async()=>{await f(`dismiss_alert`,{p_key:e,p_reason:t??null})}),restore:e=>b(async()=>{await f(`restore_alert`,{p_key:e})})},incomes:{list:async()=>(await f(`list_incomes`)).map(g),conflicts:async e=>(await f(`list_income_conflicts`,{p_amount_cents:e.amountCents,p_received_on:e.receivedOn??null,p_client_id:w(e.clientId)})).map(_),save:e=>b(async()=>{if(e.clientId&&!C.test(e.clientId))throw D(`Este cliente não foi encontrado.`);return f(`save_income`,{p_description:e.description,p_category:e.category,p_amount_cents:e.amountCents,p_received_on:e.receivedOn??null,p_client_id:e.clientId??null,p_note:e.note??null,p_confirmed:e.confirmed??!1})}),reverse:(e,t={})=>b(async()=>{if(!C.test(e))throw D(`Esta receita não foi encontrada.`);return f(`reverse_income`,{p_income_id:e,p_received_on:t.paidOn??null,p_note:t.note??null})})},ledger:{list:async()=>(await f(`list_ledger`)).map(h)}}}async function E(e){await e.exec(`analyze`)}var D=/^[a-z][a-z0-9_]*$/;function re(e){return e===void 0?null:typeof e==`object`&&e&&!(e instanceof Date)?JSON.stringify(e):e}function O(e){return e instanceof Date?e.toISOString():typeof e==`bigint`?Number(e):Array.isArray(e)?e.map(O):e}function k(e){let t=e??{};throw{code:t.code,message:t.message??String(e),details:t.detail??null,hint:t.hint??null}}function A(e,t){let n=new Map;return async(r,i={})=>{if(!D.test(r))throw Error(`Nome de função inválido: ${r}`);let a=Object.keys(i);for(let e of a)if(!D.test(e))throw Error(`Nome de argumento inválido: ${e}`);let o=a.map((e,t)=>`${e} => $${t+1}`).join(`, `),s=a.map(e=>re(i[e]));try{return await e.transaction(async e=>{await e.exec(`set local role authenticated`),await e.query(`select set_config('request.jwt.claim.sub', $1, true)`,[t]);let i=n.get(r);i===void 0&&(i=!!(await e.query(`select bool_or(prorettype = 'void'::regtype) as v from pg_catalog.pg_proc where proname = $1`,[r])).rows[0]?.v,n.set(r,i));let a=await e.query(`select public.${r}(${o}) as r`,s);return i?null:O(a.rows[0]?.r)})}catch(e){k(e)}}}function j(e,t,n=()=>{}){return T({chamar:A(e,t),aoGravar:n,origem:`local`,aposImportar:()=>E(e),migracoes:async()=>{try{return(await e.query(`select name from nap.migrations order by name`)).rows.map(e=>e.name)}catch{return[]}}})}var M=`-- NAP · 0001 · Núcleo: empresas, membros e o molde de isolamento por empresa.
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./dist-C-RRW9Dt.js","./index-xziSNDlp.js","./index-DAH-uZ0W.css"])))=>i.map(i=>d[i]);
+import{a as e,c as t,i as n,n as r,o as i,r as a,s as o,t as s}from"./index-xziSNDlp.js";var c=e=>({id:e.id,name:e.name,createdAt:e.created_at,deletedAt:e.deleted_at,purgeOn:e.purge_on,openingBalance:e.opening_balance_cents===null||e.opening_balance_on===null?null:{cents:Number(e.opening_balance_cents),on:e.opening_balance_on}}),l=e=>({id:e.id,name:e.name,email:e.email,phone:e.phone,notes:e.notes,status:e.status,createdAt:e.created_at,updatedAt:e.updated_at}),u=e=>({...l(e),quoteCount:Number(e.quote_count)}),d=e=>({id:e.id,name:e.name,unit:e.unit,basePriceCents:e.base_price_cents,estCostCents:e.est_cost_cents,status:e.status,createdAt:e.created_at,updatedAt:e.updated_at}),f=e=>({id:e.id,kind:e.kind,amountCents:e.amount_cents,paidOn:e.paid_on,method:e.method,note:e.note,reversesId:e.reverses_id,createdAt:e.created_at}),p=e=>({id:e.id,orderId:e.order_id,quoteId:e.quote_id,quoteNumber:e.quote_number,clientId:e.client_id,clientName:e.client_name,number:e.number,kind:e.kind,kindIndex:e.kind_index,kindTotal:e.kind_total,dueDate:e.due_date,amountCents:e.amount_cents,paidCents:Number(e.paid_cents),canceled:e.canceled,payments:e.payments.map(f)}),m=e=>({id:e.id,description:e.description,category:e.category,amountCents:e.amount_cents,dueDate:e.due_date,notes:e.notes,canceled:e.canceled,paidCents:Number(e.paid_cents),createdAt:e.created_at,payments:e.payments.map(f)}),h=e=>({id:e.id,direction:e.direction,source:e.source,kind:e.kind,amountCents:e.amount_cents,occurredOn:e.occurred_on,quoteId:e.quote_id,quoteNumber:e.quote_number,clientName:e.client_name,receivableKind:e.receivable_kind,receivableIndex:e.receivable_index,receivableTotal:e.receivable_total,expenseId:e.expense_id,expenseDescription:e.expense_description,category:e.category,incomeId:e.income_id,incomeDescription:e.income_description,incomeCategory:e.income_category}),g=e=>({id:e.id,description:e.description,category:e.category,amountCents:Number(e.amount_cents),receivedOn:e.received_on,clientId:e.client_id,clientName:e.client_name,note:e.note,createdAt:e.created_at,reversed:e.reversed,reversal:e.reversal?{id:e.reversal.id,receivedOn:e.reversal.received_on,note:e.reversal.note,createdAt:e.reversal.created_at}:null}),_=e=>({kind:e.kind,on:e.on,amountCents:Number(e.amount_cents),clientName:e.client_name,quoteId:e.quote_id??null,quoteNumber:e.quote_number??null,description:e.description??null}),v=e=>({id:e.id,number:e.number,clientId:e.client_id,clientName:e.client_name,status:e.status,validUntil:e.valid_until,totalCents:e.total_cents,sentAt:e.sent_at,createdAt:e.created_at,updatedAt:e.updated_at});function ee(e){return e.kind===`percent`?{tipo:`percent`,valor:e.bps}:e.kind===`fixed`?{tipo:`fixed`,valor:e.cents}:{tipo:`none`,valor:0}}function y(e,t){return e===`percent`?{kind:`percent`,bps:t}:e===`fixed`?{kind:`fixed`,cents:t}:{kind:`none`}}function te(e){let t=e.order?{id:e.order.id,status:e.order.status,approvedAt:e.order.approved_at,receivables:e.order.receivables.map(p)}:null;return{...v(e),client:{id:e.client_id,name:e.client_name,email:e.client_email,phone:e.client_phone,status:e.client_status},terms:e.terms,notes:e.notes,discount:y(e.discount_kind,Number(e.discount_value)),subtotalCents:e.subtotal_cents,discountCents:e.discount_cents,items:e.items.map(e=>({position:e.position,description:e.description,quantityMilli:e.quantity_milli,unitPriceCents:e.unit_price_cents,lineTotalCents:e.line_total_cents})),events:e.events.map(e=>({fromStatus:e.from_status,toStatus:e.to_status,at:e.at,confirmed:e.confirmed,system:e.system})),order:t}}var b=e=>({id:e.id,receivableId:e.receivable_id,state:e.state,scheduledFor:e.scheduled_for,note:e.note,createdAt:e.created_at}),ne=e=>({id:e.id,title:e.title,dueDate:e.due_date,clientId:e.client_id,clientName:e.client_name,notes:e.notes,doneAt:e.done_at,createdAt:e.created_at}),re=e=>({id:e.id,question:e.question,answer:e.answer,sourceKind:e.source_kind,sourceLabel:e.source_label,verifiedOn:e.verified_on,reviewOn:e.review_on,createdAt:e.created_at,updatedAt:e.updated_at}),x=e=>({id:e.id,title:e.title,onDate:e.on_date,startTime:e.start_time,endTime:e.end_time,clientId:e.client_id,clientName:e.client_name,place:e.place,notes:e.notes,status:e.status,createdAt:e.created_at,updatedAt:e.updated_at}),S=e=>({id:e.id,kind:e.period_kind,periodStart:e.period_start,targetCents:Number(e.target_cents),createdAt:e.created_at,updatedAt:e.updated_at}),C=e=>({key:e.alert_key,state:e.state,until:e.until,reason:e.reason,updatedAt:e.updated_at}),w=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,T=e=>e&&w.test(e)?e:null;function E({chamar:t,aoGravar:n=()=>{},origem:r,migracoes:a,aposImportar:s}){async function f(e,n){try{return await t(e,n)}catch(e){throw o(e)}}async function y(e){let t=await e();return n(),t}async function E(){let e=await f(`current_company`);return e?c(e):null}async function D(){let e=await E();if(!e)throw new i(`nao_encontrado`,`Crie a sua empresa primeiro.`);return e.id}let O=e=>new i(`nao_encontrado`,e);return{company:{current:()=>E(),create:e=>y(async()=>{await f(`create_company`,{p_name:e});let t=await E();if(!t)throw new i(`desconhecido`,`Não foi possível criar a empresa.`);return t}),rename:e=>y(async()=>c(await f(`rename_company`,{p_name:e}))),setOpeningBalance:e=>y(async()=>{await f(`set_opening_balance`,{p_company:await D(),p_cents:e?.cents??null,p_on:e?.on??null});let t=await E();if(!t)throw O(`Empresa não encontrada.`);return t}),hasBusinessData:async()=>!!await f(`has_business_data`),importAll:e=>y(async()=>{let t=await f(`import_company_data`,{p_company:await D(),p_data:e});return await s?.().catch(()=>void 0),t}),exportAll:()=>y(async()=>f(`export_company_data`,{p_company:await D()})),requestDeletion:()=>y(async()=>{let t=await f(`request_company_deletion`,{p_company:await D()});return e(new Date(t))}),cancelDeletion:()=>y(async()=>{await f(`cancel_company_deletion`,{p_company:await D()})})},clients:{list:async(e={})=>(await f(`list_clients`,{p_status:e.status??`ativo`,p_search:e.search??null})).map(e=>u(e)),get:async e=>{if(!w.test(e))return null;let t=await f(`get_client`,{p_id:e});return t?l(t):null},create:e=>y(async()=>l(await f(`save_client`,{p_id:null,p_name:e.name,p_email:e.email??null,p_phone:e.phone??null,p_notes:e.notes??null}))),update:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Cliente não encontrado.`);return l(await f(`save_client`,{p_id:e,p_name:t.name,p_email:t.email??null,p_phone:t.phone??null,p_notes:t.notes??null}))}),setStatus:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Cliente não encontrado.`);return l(await f(`set_client_status`,{p_id:e,p_status:t}))})},services:{list:async(e={})=>(await f(`list_services`,{p_status:e.status??`ativo`,p_search:e.search??null})).map(d),get:async e=>{if(!w.test(e))return null;let t=await f(`get_service`,{p_id:e});return t?d(t):null},create:e=>y(async()=>d(await f(`save_service`,{p_id:null,p_name:e.name,p_unit:e.unit??``,p_base_price_cents:e.basePriceCents??null,p_est_cost_cents:e.estCostCents??null}))),update:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Serviço não encontrado.`);return d(await f(`save_service`,{p_id:e,p_name:t.name,p_unit:t.unit??``,p_base_price_cents:t.basePriceCents??null,p_est_cost_cents:t.estCostCents??null}))}),setStatus:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Serviço não encontrado.`);return d(await f(`set_service_status`,{p_id:e,p_status:t}))})},quotes:{list:async(e={})=>(await f(`list_quotes`,{p_status:e.status??`todos`,p_client:T(e.clientId),p_search:e.search??null})).map(v),get:async e=>{if(!w.test(e))return null;let t=await f(`get_quote`,{p_id:e});return t?te(t):null},save:e=>y(async()=>{let t=ee(e.discount);return f(`save_quote`,{p_quote_id:e.id??null,p_client_id:e.clientId,p_valid_until:e.validUntil,p_terms:e.terms??null,p_notes:e.notes??null,p_discount_kind:t.tipo,p_discount_value:t.valor,p_items:e.items.map(e=>({description:e.description,quantity_milli:e.quantityMilli,unit_price_cents:e.unitPriceCents}))})}),transition:(e,t,n=!1)=>y(async()=>{if(!w.test(e))throw O(`Este orçamento não foi encontrado.`);return f(`transition_quote`,{p_quote_id:e,p_to:t,p_confirmed:n})}),approve:(e,t,n=!1)=>y(async()=>{if(!w.test(e))throw O(`Este orçamento não foi encontrado.`);return f(`approve_quote`,{p_quote_id:e,p_down_payment_cents:t.downPaymentCents,p_down_payment_due_date:t.downPaymentCents>0?t.downPaymentDueDate??null:null,p_installment_count:t.installmentCount,p_first_due_date:t.installmentCount>0?t.firstDueDate??null:null,p_confirmed:n})}),duplicate:e=>y(async()=>{if(!w.test(e))throw O(`Este orçamento não foi encontrado.`);return f(`duplicate_quote`,{p_quote_id:e})}),expireOverdue:async()=>{let e=Number(await f(`expire_overdue_quotes`,{p_company:await D()}));return e>0&&n(),e}},receivables:{list:async(e={})=>(await f(`list_receivables`,{p_quote:T(e.quoteId),p_client:T(e.clientId),p_order:null,p_include_canceled:e.includeCanceled??!1})).map(p),registerPayment:e=>y(async()=>{if(!w.test(e.receivableId))throw O(`Esta parcela não foi encontrada.`);return f(`register_payment`,{p_receivable_id:e.receivableId,p_amount_cents:e.amountCents,p_paid_on:e.paidOn??null,p_method:e.method??null,p_note:e.note??null})}),reversePayment:(e,t={})=>y(async()=>{if(!w.test(e))throw O(`Este pagamento não foi encontrado.`);return f(`reverse_payment`,{p_payment_id:e,p_paid_on:t.paidOn??null,p_note:t.note??null})})},collection:{states:async()=>(await f(`list_collection_states`)).map(b),history:async e=>w.test(e)?(await f(`list_collection_events`,{p_receivable_id:e})).map(b):[],setState:e=>y(async()=>{if(!w.test(e.receivableId))throw O(`Esta parcela não foi encontrada.`);let t=await f(`set_collection_state`,{p_receivable_id:e.receivableId,p_state:e.state,p_scheduled_for:e.scheduledFor??null,p_note:e.note??null});return t?b(t):null})},expenses:{list:async(e={})=>(await f(`list_expenses`,{p_include_canceled:e.includeCanceled??!1})).map(m),save:(e,t)=>y(async()=>{if(e!==void 0&&!w.test(e))throw O(`Esta despesa não foi encontrada.`);return f(`save_expense`,{p_expense_id:e??null,p_description:t.description,p_category:t.category,p_amount_cents:t.amountCents,p_due_date:t.dueDate,p_notes:t.notes??null})}),saveSeries:(e,t)=>y(async()=>{let n=await f(`create_expense_series`,{p_description:e.description,p_category:e.category,p_amount_cents:e.amountCents,p_first_due:e.dueDate,p_count:t,p_notes:e.notes??null});return Array.isArray(n)?n:n.replace(/^\{|\}$/g,``).split(`,`).filter(Boolean)}),pay:(e,t={})=>y(async()=>{if(!w.test(e))throw O(`Esta despesa não foi encontrada.`);return f(`pay_expense`,{p_expense_id:e,p_paid_on:t.paidOn??null,p_method:t.method??null,p_note:t.note??null})}),reversePayment:(e,t={})=>y(async()=>{if(!w.test(e))throw O(`Este pagamento não foi encontrado.`);return f(`reverse_expense_payment`,{p_payment_id:e,p_paid_on:t.paidOn??null,p_note:t.note??null})}),cancel:e=>y(async()=>{if(!w.test(e))throw O(`Esta despesa não foi encontrada.`);await f(`cancel_expense`,{p_expense_id:e})})},tasks:{list:async(e={})=>(await f(`list_tasks`,{p_include_done:e.includeDone??!1,p_client:T(e.clientId)})).map(ne),save:(e,t)=>y(async()=>{if(e!==void 0&&!w.test(e))throw O(`Este lembrete não foi encontrado.`);return f(`save_task`,{p_id:e??null,p_title:t.title,p_due:t.dueDate,p_client:t.clientId??null,p_notes:t.notes??null})}),setDone:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Este lembrete não foi encontrado.`);await f(`set_task_done`,{p_id:e,p_done:t})}),remove:e=>y(async()=>{if(!w.test(e))throw O(`Este lembrete não foi encontrado.`);await f(`delete_task`,{p_id:e})})},answers:{list:async e=>(await f(`list_saved_answers`,{p_search:e??null})).map(re),save:(e,t)=>y(async()=>{if(e!==void 0&&!w.test(e))throw O(`Esta resposta guardada não foi encontrada.`);return f(`save_saved_answer`,{p_id:e??null,p_question:t.question,p_answer:t.answer,p_source_kind:t.sourceKind,p_source_label:t.sourceLabel??null,p_verified:t.verified,p_review_on:t.reviewOn})}),remove:e=>y(async()=>{if(!w.test(e))throw O(`Esta resposta guardada não foi encontrada.`);await f(`delete_saved_answer`,{p_id:e})})},agenda:{list:async(e={})=>(await f(`list_appointments`,{p_from:e.from??null,p_to:e.to??null})).map(x),save:(e,t)=>y(async()=>{if(e!==void 0&&!w.test(e))throw O(`Este compromisso não foi encontrado.`);if(t.clientId&&!w.test(t.clientId))throw O(`Este cliente não foi encontrado.`);return f(`save_appointment`,{p_id:e??null,p_title:t.title,p_on:t.onDate,p_start:t.startTime||null,p_end:t.endTime||null,p_client:t.clientId??null,p_place:t.place??null,p_notes:t.notes??null})}),setStatus:(e,t)=>y(async()=>{if(!w.test(e))throw O(`Este compromisso não foi encontrado.`);await f(`set_appointment_status`,{p_id:e,p_status:t})}),remove:e=>y(async()=>{if(!w.test(e))throw O(`Este compromisso não foi encontrado.`);await f(`delete_appointment`,{p_id:e})})},goals:{list:async()=>(await f(`list_revenue_goals`)).map(S),save:e=>y(async()=>f(`save_revenue_goal`,{p_kind:e.kind,p_period_on:e.periodOn,p_target_cents:e.targetCents})),remove:e=>y(async()=>{if(!w.test(e))throw O(`Esta meta não foi encontrada.`);await f(`delete_revenue_goal`,{p_id:e})})},system:{info:async()=>{let e=await f(`table_counts`);return{origem:r,migracoes:a?await a():[],contagens:e.map(e=>({tabela:e.tabela,n:Number(e.n)}))}}},alerts:{states:async()=>(await f(`list_alert_states`)).map(C),snooze:(e,t,n)=>y(async()=>{await f(`snooze_alert`,{p_key:e,p_until:t,p_reason:n??null})}),dismiss:(e,t)=>y(async()=>{await f(`dismiss_alert`,{p_key:e,p_reason:t??null})}),restore:e=>y(async()=>{await f(`restore_alert`,{p_key:e})})},incomes:{list:async()=>(await f(`list_incomes`)).map(g),conflicts:async e=>(await f(`list_income_conflicts`,{p_amount_cents:e.amountCents,p_received_on:e.receivedOn??null,p_client_id:T(e.clientId)})).map(_),save:e=>y(async()=>{if(e.clientId&&!w.test(e.clientId))throw O(`Este cliente não foi encontrado.`);return f(`save_income`,{p_description:e.description,p_category:e.category,p_amount_cents:e.amountCents,p_received_on:e.receivedOn??null,p_client_id:e.clientId??null,p_note:e.note??null,p_confirmed:e.confirmed??!1})}),reverse:(e,t={})=>y(async()=>{if(!w.test(e))throw O(`Esta receita não foi encontrada.`);return f(`reverse_income`,{p_income_id:e,p_received_on:t.paidOn??null,p_note:t.note??null})})},ledger:{list:async()=>(await f(`list_ledger`)).map(h)}}}async function D(e){await e.exec(`analyze`)}var O=/^[a-z][a-z0-9_]*$/;function k(e){return e===void 0?null:typeof e==`object`&&e&&!(e instanceof Date)?JSON.stringify(e):e}function A(e){return e instanceof Date?e.toISOString():typeof e==`bigint`?Number(e):Array.isArray(e)?e.map(A):e}function j(e){let t=e??{};throw{code:t.code,message:t.message??String(e),details:t.detail??null,hint:t.hint??null}}var M=e=>typeof e==`function`?e():e;function N(){let e=new Map;return async(t,n)=>{let r=e.get(n);return r===void 0&&(r=!!(await t.query(`select bool_or(prorettype = 'void'::regtype) as v from pg_catalog.pg_proc where proname = $1`,[n])).rows[0]?.v,e.set(n,r)),r}}function P(e,t){if(!O.test(e))throw Error(`Nome de função inválido: ${e}`);let n=Object.keys(t);for(let e of n)if(!O.test(e))throw Error(`Nome de argumento inválido: ${e}`);return{lista:n.map((e,t)=>`${e} => $${t+1}`).join(`, `),valores:n.map(e=>k(t[e]))}}function F(e,t){let n=N();return async(r,i={})=>{let{lista:a,valores:o}=P(r,i),s=M(t);try{return await e.transaction(async e=>{await e.exec(`set local role authenticated`),await e.query(`select set_config('request.jwt.claim.sub', $1, true)`,[s]);let t=await n(e,r),i=await e.query(`select public.${r}(${a}) as r`,o);return t?null:A(i.rows[0]?.r)})}catch(e){j(e)}}}function I(e,t,n=()=>{}){return E({chamar:F(e,t),aoGravar:n,origem:`local`,aposImportar:()=>D(e),migracoes:async()=>{try{return(await e.query(`select name from nap.migrations order by name`)).rows.map(e=>e.name)}catch{return[]}}})}var L=`-- NAP · 0001 · Núcleo: empresas, membros e o molde de isolamento por empresa.
 -- Convenções (valem para TODAS as migrações):
 --   * toda tabela de negócio tem company_id e passa por public.apply_company_rls();
 --   * funções security definer sempre com "set search_path = ''" e checagem de empresa própria
@@ -132,7 +132,7 @@ grant select on public.company_members to authenticated;
 
 create policy members_select on public.company_members for select to authenticated
   using (public.is_member(company_id));
-`,N=`-- NAP · 0002 · Trilha de auditoria: só inserção, sem segredos, retenção de 12 meses (D14).
+`,R=`-- NAP · 0002 · Trilha de auditoria: só inserção, sem segredos, retenção de 12 meses (D14).
 -- Guarda quem fez o quê e quando, com metadados mínimos. NÃO grave aqui senhas, tokens,
 -- nem dados pessoais desnecessários (nome de cliente, contato, valores).
 
@@ -190,7 +190,7 @@ as $$
 $$;
 
 revoke all on function public.audit_log(uuid, text, text, uuid, jsonb) from public, anon, authenticated;
-`,P=`-- NAP · 0003 · Empresa: criar, exportar, pedir/cancelar exclusão e retenção.
+`,z=`-- NAP · 0003 · Empresa: criar, exportar, pedir/cancelar exclusão e retenção.
 -- Prazos (D13, D14): carência de 30 dias para exclusão; auditoria guardada por 12 meses.
 -- Os prazos são PROPOSTAS a validar com orientação jurídica.
 
@@ -341,7 +341,7 @@ grant execute on function public.create_company(text) to authenticated;
 grant execute on function public.export_company_data(uuid) to authenticated;
 grant execute on function public.request_company_deletion(uuid) to authenticated;
 grant execute on function public.cancel_company_deletion(uuid) to authenticated;
-`,F=`-- NAP · 0004 · Regras de dinheiro no servidor (D12, opção A): funções PURAS e idênticas às de src/domain.
+`,B=`-- NAP · 0004 · Regras de dinheiro no servidor (D12, opção A): funções PURAS e idênticas às de src/domain.
 -- Centavos inteiros, arredondamento meio para cima, só valores não negativos.
 -- O teste supabase/tests/regras-dinheiro.test.ts roda os mesmos casos em TypeScript e em SQL e exige
 -- resultado idêntico. Se mudar uma regra, mude as duas e o teste.
@@ -399,7 +399,7 @@ revoke all on function public.money_split_evenly(bigint, integer) from public, a
 grant execute on function public.money_mul_qty(bigint, bigint) to authenticated;
 grant execute on function public.money_percent(bigint, integer) to authenticated;
 grant execute on function public.money_split_evenly(bigint, integer) to authenticated;
-`,I=`-- NAP · 0005 · Clientes e catálogo de serviços (etapa 3a).
+`,V=`-- NAP · 0005 · Clientes e catálogo de serviços (etapa 3a).
 -- Cadastros simples: o navegador grava direto (regras de acesso por empresa + regras de tabela).
 -- Nada é apagado de verdade: o cliente/serviço é ARQUIVADO e pode ser restaurado.
 -- Sem CPF nem dados bancários (minimização de dados, LGPD).
@@ -501,7 +501,7 @@ create trigger service_items_touch before update on public.service_items
 for each row execute function public.touch_updated_at();
 
 select public.apply_company_rls('public.service_items');
-`,L=`-- NAP · 0006 · Orçamentos (etapa 3a).
+`,H=`-- NAP · 0006 · Orçamentos (etapa 3a).
 -- O navegador só LÊ estas tabelas. Quem grava são as funções abaixo, que validam tudo, recalculam os totais
 -- com as regras de dinheiro (0004) e registram o histórico. Assim ninguém forja total, estado ou número.
 -- Aprovar NÃO está aqui: aprovação cria serviço e recebimentos e é exclusiva da função da etapa 3b.
@@ -954,7 +954,7 @@ grant execute on function public.save_quote(uuid, uuid, date, text, text, text, 
 grant execute on function public.transition_quote(uuid, text, boolean) to authenticated;
 grant execute on function public.duplicate_quote(uuid) to authenticated;
 grant execute on function public.expire_overdue_quotes(uuid) to authenticated;
-`,R=`-- NAP · 0007 · Aprovação, recebimentos e pagamentos (etapa 3b) + exportação completa.
+`,U=`-- NAP · 0007 · Aprovação, recebimentos e pagamentos (etapa 3b) + exportação completa.
 -- Regras que o banco garante sozinho (o navegador só LÊ estas tabelas):
 --   * aprovar um orçamento cria UM serviço (orders) e o plano de recebimentos PREVISTOS (receivables);
 --     aprovar de novo devolve o mesmo serviço, nunca duplica;
@@ -1552,7 +1552,7 @@ grant execute on function public.plan_installments(bigint, bigint, date, integer
 grant execute on function public.approve_quote(uuid, bigint, date, integer, date, boolean) to authenticated;
 grant execute on function public.register_payment(uuid, bigint, date, text, text) to authenticated;
 grant execute on function public.reverse_payment(uuid, date, text) to authenticated;
-`,z=`-- NAP · 0008 · Despesas e caixa (etapa 3c) + exportação com as tabelas novas.
+`,W=`-- NAP · 0008 · Despesas e caixa (etapa 3c) + exportação com as tabelas novas.
 -- Mesmo molde dos recebimentos (0007), do lado de quem PAGA:
 --   * despesa = uma conta a pagar (descrição, categoria, valor, vencimento);
 --   * pagar uma despesa registra um pagamento IMUTÁVEL e um lançamento de SAÍDA que o espelha;
@@ -1982,7 +1982,7 @@ grant execute on function public.save_expense(uuid, text, text, bigint, date, te
 grant execute on function public.pay_expense(uuid, date, text, text) to authenticated;
 grant execute on function public.reverse_expense_payment(uuid, date, text) to authenticated;
 grant execute on function public.cancel_expense(uuid) to authenticated;
-`,B=`-- NAP · 0009 · Ajustes do caixa depois da revisão da 3c:
+`,G=`-- NAP · 0009 · Ajustes do caixa depois da revisão da 3c:
 --   * saldo de partida: o "saldo estimado" só faz sentido se partir do que o usuário realmente tem em caixa;
 --   * despesas recorrentes: custos fixos do mês (DAS, aluguel, internet) criados de uma vez, uma despesa por mês;
 --   * categoria "retirada do dono": separa o dinheiro pessoal do dinheiro do negócio.
@@ -2163,7 +2163,7 @@ revoke all on function public.set_opening_balance(uuid, bigint, date) from publi
 revoke all on function public.create_expense_series(text, text, bigint, date, integer, text) from public, anon;
 grant execute on function public.set_opening_balance(uuid, bigint, date) to authenticated;
 grant execute on function public.create_expense_series(text, text, bigint, date, integer, text) to authenticated;
-`,V=`-- NAP · 0010 · Tarefas e próximas ações (etapa 4).
+`,K=`-- NAP · 0010 · Tarefas e próximas ações (etapa 4).
 --   * tasks: lembretes que o próprio usuário cria ("ligar para a Maria na sexta"), com data e cliente opcional;
 --   * alert_states: o que o usuário fez com uma sugestão do NAP (dispensou ou adiou), para ela não se repetir.
 -- As sugestões em si NÃO ficam no banco: são calculadas das regras a cada abertura (src/features/tarefas/regras.ts).
@@ -2476,7 +2476,7 @@ grant execute on function public.delete_task(uuid) to authenticated;
 grant execute on function public.snooze_alert(text, date, text) to authenticated;
 grant execute on function public.dismiss_alert(text, text) to authenticated;
 grant execute on function public.restore_alert(text) to authenticated;
-`,H=`-- NAP · 0011 · Restaurar uma cópia (etapa 4).
+`,q=`-- NAP · 0011 · Restaurar uma cópia (etapa 4).
 -- A cópia é o arquivo que \`export_company_data\` gera. Restaurar serve para recuperar os dados (limpou o navegador,
 -- trocou de aparelho) e, no futuro, para levar os dados do modo local para o servidor.
 -- Regras:
@@ -2739,7 +2739,7 @@ $$;
 
 revoke all on function public.import_company_data(uuid, jsonb) from public, anon;
 grant execute on function public.import_company_data(uuid, jsonb) to authenticated;
-`,U=`-- NAP · 0012 · Isolamento mais rápido (etapa 4, desempenho).
+`,ie=`-- NAP · 0012 · Isolamento mais rápido (etapa 4, desempenho).
 -- NÃO muda quem enxerga o quê: continua valendo "só as linhas das empresas das quais o usuário é membro".
 -- Muda a FORMA da regra. Antes, cada linha lida chamava \`is_member(company_id)\` (uma consulta por linha, por tabela).
 -- Numa lista de 3.600 parcelas, com as junções, eram dezenas de milhares de chamadas (2 s no navegador).
@@ -2843,7 +2843,7 @@ $$;
 -- As duas políticas escritas à mão em 0001 (empresa e membros).
 alter policy companies_select on public.companies using (id in (select public.my_company_ids()));
 alter policy members_select on public.company_members using (company_id in (select public.my_company_ids()));
-`,ie=`-- NAP · 0013 · Leituras e cadastros simples como funções do banco (preparação para o servidor).
+`,J=`-- NAP · 0013 · Leituras e cadastros simples como funções do banco (preparação para o servidor).
 -- Até aqui as listas e os detalhes eram consultas SQL escritas dentro do navegador (modo local). Com o Supabase
 -- o navegador não escreve SQL: chama funções (\`rpc\`). Mover as consultas para o banco faz com que o MESMO SQL
 -- sirva aos dois modos e seja testado uma vez só. Nada muda para quem usa o app.
@@ -3257,7 +3257,7 @@ begin
   end loop;
 end
 $$;
-`,W=`-- NAP · 0014 · Respostas guardadas ("Perguntar ao NAP", etapa seguinte).
+`,Y=`-- NAP · 0014 · Respostas guardadas ("Perguntar ao NAP", etapa seguinte).
 -- Quando o NAP não sabe responder (imposto, lei, "o que é..."), a pessoa leva a PERGUNTA para uma IA ou para o
 -- contador. Esta tabela guarda, só para consulta, a resposta que ela trouxe de volta, com a origem e o prazo para rever.
 --
@@ -3785,7 +3785,7 @@ revoke all on function public.list_saved_answers(text) from public, anon;
 grant execute on function public.save_saved_answer(uuid, text, text, text, text, boolean, date) to authenticated;
 grant execute on function public.delete_saved_answer(uuid) to authenticated;
 grant execute on function public.list_saved_answers(text) to authenticated;
-`,G=`-- NAP · 0015 · Estados de cobrança (Fase U3.2, Atualização 1.1).
+`,ae=`-- NAP · 0015 · Estados de cobrança (Fase U3.2, Atualização 1.1).
 -- Cada parcela a receber ganha um HISTÓRICO de cobrança, separado do pagamento:
 --   pendente (ainda sem ação), agendada (data para cobrar), mensagem preparada, enviada, pagamento informado,
 --   pausada, contestada e cancelada.
@@ -4321,7 +4321,7 @@ revoke all on function public.list_collection_states() from public, anon;
 grant execute on function public.set_collection_state(uuid, text, date, text) to authenticated;
 grant execute on function public.list_collection_events(uuid) to authenticated;
 grant execute on function public.list_collection_states() to authenticated;
-`,K=`-- NAP · 0016 · Receita avulsa (Fase U3.3, Atualização 1.1).
+`,oe=`-- NAP · 0016 · Receita avulsa (Fase U3.3, Atualização 1.1).
 -- Entrada de dinheiro SEM orçamento (venda no balcão, serviço rápido), com categoria e data, que entra no caixa e nos
 -- relatórios. Regras de desenho:
 --   * é um LANÇAMENTO PRÓPRIO: uma terceira origem do caixa (ao lado do pagamento de cliente e do pagamento de despesa),
@@ -5048,7 +5048,1805 @@ grant execute on function public.list_income_conflicts(bigint, date, uuid) to au
 grant execute on function public.save_income(text, text, bigint, date, uuid, text, boolean) to authenticated;
 grant execute on function public.reverse_income(uuid, date, text) to authenticated;
 grant execute on function public.list_incomes() to authenticated;
-`,q=`-- AMBIENTE DE COMPATIBILIDADE COM O SUPABASE. Imita o que o Supabase já fornece (esquema auth, papéis,
+`,se=`-- NAP · 0017 · Metas de faturamento (ferramenta de empreendedor, plano NAP Empreendedor).
+-- A pessoa define quanto quer RECEBER num mês ou num ano; a tela compara com o que o caixa já registrou. Regras de desenho:
+--   * a meta é um número que a PESSOA escolhe: nenhuma função de dinheiro lê esta tabela (como as respostas guardadas),
+--     então uma meta nunca muda saldo, relatório, previsão nem cobrança (um teste varre as funções para garantir);
+--   * uma meta por empresa, tipo e período: gravar de novo o mesmo período ATUALIZA o valor (não cria outra);
+--   * o período é guardado pelo primeiro dia (dia 1 do mês; 1º de janeiro no ano); a função aceita qualquer dia do
+--     período e normaliza;
+--   * a meta pode ser editada e apagada (não é registro financeiro); a auditoria guarda o fato, o tipo, o período e o
+--     valor da meta, nunca texto livre (não há texto livre);
+--   * o navegador só LÊ a tabela; quem grava são as funções abaixo, como nas outras;
+--   * exportação formato 8 e restauração dos formatos 2 a 8.
+
+create table public.revenue_goals (
+  id uuid primary key default gen_random_uuid(),
+  company_id uuid not null references public.companies (id) on delete cascade,
+  period_kind text not null constraint revenue_goals_kind_check check (period_kind in ('mes', 'ano')),
+  -- Dia 1 do mês (mensal) ou 1º de janeiro (anual).
+  period_start date not null constraint revenue_goals_period_check check (
+    period_start between date '2000-01-01' and date '2100-12-01'
+    and extract(day from period_start) = 1
+    and (period_kind = 'mes' or extract(month from period_start) = 1)
+  ),
+  target_cents bigint not null constraint revenue_goals_target_check check (target_cents > 0 and target_cents <= 1000000000000),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint revenue_goals_one_per_period unique (company_id, period_kind, period_start),
+  unique (company_id, id)
+);
+
+create trigger revenue_goals_touch before update on public.revenue_goals
+for each row execute function public.touch_updated_at();
+
+select public.apply_company_rls('public.revenue_goals', false);
+
+-- ---------- Gravar ----------
+
+-- Define a meta de um mês ('mes') ou de um ano ('ano'). p_period_on é qualquer dia do período (a função usa o primeiro).
+-- Se já existe meta para aquele período, troca o valor.
+create function public.save_revenue_goal(
+  p_kind text,
+  p_period_on date,
+  p_target_cents bigint
+) returns uuid
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+  v_start date;
+  v_id uuid;
+  v_novo boolean;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  select m.company_id into v_company from public.company_members m where m.user_id = v_user limit 1;
+  if v_company is null then
+    raise exception 'not_member' using errcode = '42501';
+  end if;
+
+  if p_kind is null or p_kind not in ('mes', 'ano') then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'period_kind';
+  end if;
+  if p_period_on is null or p_period_on < date '2000-01-01' or p_period_on > date '2100-12-31' then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'period_start';
+  end if;
+  if p_target_cents is null or p_target_cents <= 0 or p_target_cents > 1000000000000 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'target_cents';
+  end if;
+  v_start := case p_kind when 'mes' then date_trunc('month', p_period_on)::date else date_trunc('year', p_period_on)::date end;
+
+  select g.id into v_id from public.revenue_goals g
+   where g.company_id = v_company and g.period_kind = p_kind and g.period_start = v_start for update;
+  v_novo := v_id is null;
+  if v_novo then
+    insert into public.revenue_goals (company_id, period_kind, period_start, target_cents)
+      values (v_company, p_kind, v_start, p_target_cents)
+      returning id into v_id;
+  else
+    update public.revenue_goals set target_cents = p_target_cents where id = v_id;
+  end if;
+
+  perform public.audit_log(v_company, case when v_novo then 'revenue_goal.create' else 'revenue_goal.update' end, 'revenue_goal', v_id,
+    jsonb_build_object('kind', p_kind, 'period_start', v_start::text, 'target_cents', p_target_cents));
+  return v_id;
+end
+$$;
+
+-- Apaga uma meta (não é registro financeiro). Fica na auditoria.
+create function public.delete_revenue_goal(p_id uuid) returns void
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+  v_kind text;
+  v_start date;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  select g.company_id, g.period_kind, g.period_start into v_company, v_kind, v_start
+    from public.revenue_goals g where g.id = p_id for update;
+  if v_company is null or not public.is_member(v_company) then
+    raise exception 'revenue_goal_not_found' using errcode = 'P0002';
+  end if;
+  delete from public.revenue_goals where id = p_id;
+  perform public.audit_log(v_company, 'revenue_goal.delete', 'revenue_goal', p_id,
+    jsonb_build_object('kind', v_kind, 'period_start', v_start::text));
+end
+$$;
+
+-- ---------- Ler (SECURITY INVOKER: a RLS decide o que existe, como nas outras leituras) ----------
+
+-- As metas, da mais recente para a mais antiga (o ano antes dos meses dele).
+create function public.list_revenue_goals() returns jsonb
+language sql stable set search_path = ''
+as $$
+  select coalesce(jsonb_agg(to_jsonb(t) - '_inicio' - '_ordem' order by t._inicio desc, t._ordem, t.id), '[]'::jsonb)
+    from (
+      select g.id, g.period_kind, g.period_start::text as period_start, g.target_cents,
+             public.iso_utc(g.created_at) as created_at, public.iso_utc(g.updated_at) as updated_at,
+             g.period_start as _inicio, case g.period_kind when 'ano' then 0 else 1 end as _ordem
+        from public.revenue_goals g
+    ) t
+$$;
+
+-- ---------- Exportação (formato 8, com as metas) ----------
+
+create or replace function public.export_company_data(p_company uuid) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+begin
+  if not public.is_member(p_company) then
+    raise exception 'not_member' using errcode = '42501';
+  end if;
+
+  perform public.audit_log(p_company, 'company.export', 'company', p_company);
+
+  return jsonb_build_object(
+    'format', 8,
+    'exported_at', now(),
+    'company', (select to_jsonb(c) from public.companies c where c.id = p_company),
+    'members', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.user_id)
+         from public.company_members t where t.company_id = p_company), '[]'::jsonb),
+    'clients', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.clients t where t.company_id = p_company), '[]'::jsonb),
+    'service_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.service_items t where t.company_id = p_company), '[]'::jsonb),
+    'quotes', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.number)
+         from public.quotes t where t.company_id = p_company), '[]'::jsonb),
+    'quote_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.quote_id, t.position)
+         from public.quote_items t where t.company_id = p_company), '[]'::jsonb),
+    'quote_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.id)
+         from public.quote_events t where t.company_id = p_company), '[]'::jsonb),
+    'orders', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.approved_at, t.id)
+         from public.orders t where t.company_id = p_company), '[]'::jsonb),
+    'receivables', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.order_id, t.number)
+         from public.receivables t where t.company_id = p_company), '[]'::jsonb),
+    'payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.payments t where t.company_id = p_company), '[]'::jsonb),
+    'collection_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.collection_events t where t.company_id = p_company), '[]'::jsonb),
+    'expenses', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.expenses t where t.company_id = p_company), '[]'::jsonb),
+    'expense_payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.expense_payments t where t.company_id = p_company), '[]'::jsonb),
+    'income_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.income_entries t where t.company_id = p_company), '[]'::jsonb),
+    'ledger_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.occurred_on, t.created_at, t.id)
+         from public.ledger_entries t where t.company_id = p_company), '[]'::jsonb),
+    'tasks', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.tasks t where t.company_id = p_company), '[]'::jsonb),
+    'alert_states', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.alert_key)
+         from public.alert_states t where t.company_id = p_company), '[]'::jsonb),
+    'saved_answers', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.saved_answers t where t.company_id = p_company), '[]'::jsonb),
+    'revenue_goals', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.period_start, t.period_kind desc, t.id)
+         from public.revenue_goals t where t.company_id = p_company), '[]'::jsonb),
+    'audit_events', coalesce(
+      (select jsonb_agg(to_jsonb(a) order by a.at)
+         from (select e.* from public.audit_events e
+                where e.company_id = p_company order by e.at desc limit 5000) a), '[]'::jsonb)
+  );
+end
+$$;
+
+-- ---------- Restauração (aceita cópias dos formatos 2 a 8) ----------
+
+create or replace function public.import_company_data(p_company uuid, p_data jsonb) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_format integer;
+  v_chave text;
+  v_counts jsonb := '{}'::jsonb;
+  v_n bigint;
+  v_empresa jsonb;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if not public.is_owner(p_company) then
+    raise exception 'not_owner' using errcode = '42501';
+  end if;
+
+  -- Formato do arquivo: um objeto de uma versão que sabemos ler (2 a 8); as listas, quando existem, são listas.
+  if p_data is null or jsonb_typeof(p_data) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  if (p_data ->> 'format') is null or (p_data ->> 'format') !~ '^[0-9]{1,3}$' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  v_format := (p_data ->> 'format')::integer;
+  if v_format < 2 or v_format > 8 then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  foreach v_chave in array array[
+    'clients', 'service_items', 'quotes', 'quote_items', 'quote_events', 'orders', 'receivables', 'payments',
+    'collection_events', 'expenses', 'expense_payments', 'income_entries', 'ledger_entries', 'tasks', 'alert_states',
+    'saved_answers', 'revenue_goals'
+  ] loop
+    if p_data ? v_chave and jsonb_typeof(p_data -> v_chave) <> 'array' then
+      raise exception 'import_format' using errcode = 'P0001';
+    end if;
+  end loop;
+  v_empresa := coalesce(p_data -> 'company', '{}'::jsonb);
+  if jsonb_typeof(v_empresa) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+
+  -- Só em empresa vazia.
+  if exists (select 1 from public.clients where company_id = p_company)
+     or exists (select 1 from public.service_items where company_id = p_company)
+     or exists (select 1 from public.quotes where company_id = p_company)
+     or exists (select 1 from public.expenses where company_id = p_company)
+     or exists (select 1 from public.tasks where company_id = p_company)
+     or exists (select 1 from public.alert_states where company_id = p_company)
+     or exists (select 1 from public.saved_answers where company_id = p_company)
+     or exists (select 1 from public.revenue_goals where company_id = p_company)
+     or exists (select 1 from public.income_entries where company_id = p_company)
+     or exists (select 1 from public.ledger_entries where company_id = p_company) then
+    raise exception 'company_not_empty' using errcode = 'P0001';
+  end if;
+
+  begin
+    insert into public.clients (id, company_id, name, email, phone, notes, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.email, r.phone, r.notes, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.clients, coalesce(p_data -> 'clients', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('clients', v_n);
+
+    insert into public.service_items (id, company_id, name, unit, base_price_cents, est_cost_cents, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.unit, r.base_price_cents, r.est_cost_cents, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.service_items, coalesce(p_data -> 'service_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('service_items', v_n);
+
+    insert into public.quotes (
+      id, company_id, client_id, number, status, valid_until, terms, notes, discount_kind, discount_value,
+      subtotal_cents, discount_cents, total_cents, sent_at, decided_at, created_at, updated_at
+    )
+    select r.id, p_company, r.client_id, r.number, r.status, r.valid_until, r.terms, r.notes, r.discount_kind,
+           r.discount_value, r.subtotal_cents, r.discount_cents, r.total_cents, r.sent_at, r.decided_at,
+           r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.quotes, coalesce(p_data -> 'quotes', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quotes', v_n);
+
+    insert into public.quote_items (id, company_id, quote_id, position, description, quantity_milli, unit_price_cents)
+    select r.id, p_company, r.quote_id, r.position, r.description, r.quantity_milli, r.unit_price_cents
+      from jsonb_populate_recordset(null::public.quote_items, coalesce(p_data -> 'quote_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_items', v_n);
+
+    insert into public.quote_events (id, company_id, quote_id, from_status, to_status, actor_user_id, at, confirmed, system)
+    overriding system value
+    select r.id, p_company, r.quote_id, r.from_status, r.to_status, r.actor_user_id, r.at, r.confirmed, r.system
+      from jsonb_populate_recordset(null::public.quote_events, coalesce(p_data -> 'quote_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_events', v_n);
+
+    insert into public.orders (id, company_id, quote_id, client_id, status, total_cents, approved_at, canceled_at)
+    select r.id, p_company, r.quote_id, r.client_id, r.status, r.total_cents, r.approved_at, r.canceled_at
+      from jsonb_populate_recordset(null::public.orders, coalesce(p_data -> 'orders', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('orders', v_n);
+
+    insert into public.receivables (id, company_id, order_id, number, kind, due_date, amount_cents, canceled_at, created_at)
+    select r.id, p_company, r.order_id, r.number, r.kind, r.due_date, r.amount_cents, r.canceled_at, r.created_at
+      from jsonb_populate_recordset(null::public.receivables, coalesce(p_data -> 'receivables', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('receivables', v_n);
+
+    insert into public.payments (
+      id, seq, company_id, receivable_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.payments, coalesce(p_data -> 'payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('payments', v_n);
+
+    insert into public.collection_events (id, seq, company_id, receivable_id, state, scheduled_for, note, created_by, created_at)
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.state, r.scheduled_for, r.note, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.collection_events, coalesce(p_data -> 'collection_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('collection_events', v_n);
+
+    insert into public.expenses (id, company_id, description, category, amount_cents, due_date, notes, canceled_at, created_at, updated_at)
+    select r.id, p_company, r.description, r.category, r.amount_cents, r.due_date, r.notes, r.canceled_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.expenses, coalesce(p_data -> 'expenses', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expenses', v_n);
+
+    insert into public.expense_payments (
+      id, seq, company_id, expense_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.expense_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.expense_payments, coalesce(p_data -> 'expense_payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expense_payments', v_n);
+
+    insert into public.income_entries (
+      id, seq, company_id, kind, category, description, amount_cents, received_on, client_id, note, reverses_id,
+      created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.kind, r.category, r.description, r.amount_cents, r.received_on, r.client_id, r.note,
+           r.reverses_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.income_entries, coalesce(p_data -> 'income_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('income_entries', v_n);
+
+    insert into public.ledger_entries (id, company_id, payment_id, expense_payment_id, income_entry_id, direction, amount_cents, occurred_on, created_at)
+    select r.id, p_company, r.payment_id, r.expense_payment_id, r.income_entry_id, r.direction, r.amount_cents, r.occurred_on, r.created_at
+      from jsonb_populate_recordset(null::public.ledger_entries, coalesce(p_data -> 'ledger_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('ledger_entries', v_n);
+
+    insert into public.tasks (id, company_id, title, due_date, client_id, notes, done_at, created_at, updated_at)
+    select r.id, p_company, r.title, r.due_date, r.client_id, r.notes, r.done_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.tasks, coalesce(p_data -> 'tasks', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('tasks', v_n);
+
+    insert into public.alert_states (company_id, alert_key, state, until, reason, updated_at)
+    select p_company, r.alert_key, r.state, r.until, r.reason, r.updated_at
+      from jsonb_populate_recordset(null::public.alert_states, coalesce(p_data -> 'alert_states', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('alert_states', v_n);
+
+    insert into public.saved_answers (id, company_id, question, answer, source_kind, source_label, verified_on, review_on, created_at, updated_at)
+    select r.id, p_company, r.question, r.answer, r.source_kind, r.source_label, r.verified_on, r.review_on, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.saved_answers, coalesce(p_data -> 'saved_answers', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('saved_answers', v_n);
+
+    insert into public.revenue_goals (id, company_id, period_kind, period_start, target_cents, created_at, updated_at)
+    select r.id, p_company, r.period_kind, r.period_start, r.target_cents, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.revenue_goals, coalesce(p_data -> 'revenue_goals', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('revenue_goals', v_n);
+
+    -- Os contadores seguem de onde a cópia parou (próximo número de orçamento, próximos ids das tabelas com sequência).
+    update public.companies set
+      quote_seq = greatest(
+        quote_seq,
+        coalesce((select max(q.number) from public.quotes q where q.company_id = p_company), 0),
+        case when (v_empresa ->> 'quote_seq') ~ '^[0-9]{1,9}$' then (v_empresa ->> 'quote_seq')::integer else 0 end
+      ),
+      opening_balance_cents = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                   then (v_empresa ->> 'opening_balance_cents')::bigint end,
+      opening_balance_on = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                then (v_empresa ->> 'opening_balance_on')::date end
+    where id = p_company;
+    perform setval(pg_get_serial_sequence('public.quote_events', 'id'), greatest((select coalesce(max(id), 0) from public.quote_events), 1),
+                   (select count(*) > 0 from public.quote_events));
+    perform setval(pg_get_serial_sequence('public.payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.payments), 1),
+                   (select count(*) > 0 from public.payments));
+    perform setval(pg_get_serial_sequence('public.expense_payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.expense_payments), 1),
+                   (select count(*) > 0 from public.expense_payments));
+    perform setval(pg_get_serial_sequence('public.collection_events', 'seq'), greatest((select coalesce(max(seq), 0) from public.collection_events), 1),
+                   (select count(*) > 0 from public.collection_events));
+    perform setval(pg_get_serial_sequence('public.income_entries', 'seq'), greatest((select coalesce(max(seq), 0) from public.income_entries), 1),
+                   (select count(*) > 0 from public.income_entries));
+  exception
+    when unique_violation then
+      -- Mesmo id já existe (neste aparelho ou em outra empresa): a cópia não pode entrar. Sem detalhes do que existe.
+      raise exception 'import_conflict' using errcode = 'P0001';
+    when foreign_key_violation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'references';
+    when check_violation or not_null_violation or invalid_text_representation or datetime_field_overflow
+         or invalid_datetime_format or numeric_value_out_of_range or invalid_parameter_value or string_data_right_truncation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'values';
+  end;
+
+  -- ---------- O dinheiro tem de fechar (as mesmas regras que as funções do servidor garantem ao gravar) ----------
+
+  -- Orçamento: subtotal = soma das linhas; desconto e total conforme o tipo de desconto.
+  if exists (
+    select 1
+      from public.quotes q
+      left join lateral (select coalesce(sum(i.line_total_cents), 0) as soma from public.quote_items i where i.quote_id = q.id) s on true
+     where q.company_id = p_company
+       and (q.subtotal_cents <> s.soma
+            or q.total_cents <> q.subtotal_cents - q.discount_cents
+            or q.discount_cents <> case q.discount_kind
+                                     when 'none' then 0
+                                     when 'percent' then public.money_percent(q.subtotal_cents, q.discount_value::integer)
+                                     else q.discount_value end)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'quotes';
+  end if;
+
+  -- Orçamento aprovado tem serviço; serviço só existe para orçamento aprovado ou cancelado depois de aprovado.
+  if exists (select 1 from public.quotes q where q.company_id = p_company and q.status = 'aprovado'
+              and not exists (select 1 from public.orders o where o.quote_id = q.id))
+     or exists (select 1 from public.orders o join public.quotes q on q.id = o.quote_id
+                 where o.company_id = p_company and q.status not in ('aprovado', 'cancelado')) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'orders';
+  end if;
+
+  -- Serviço: as parcelas somam o total.
+  if exists (
+    select 1 from public.orders o
+     where o.company_id = p_company
+       and o.total_cents <> (select coalesce(sum(r.amount_cents), 0) from public.receivables r where r.order_id = o.id)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'receivables';
+  end if;
+
+  -- Parcela: o pago líquido nunca passa do valor nem fica negativo; e o estorno tem a mesma data ou depois do pagamento.
+  if exists (
+    select 1 from public.receivables r
+     where r.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.payments p where p.receivable_id = r.id) not between 0 and r.amount_cents
+  ) or exists (
+    select 1 from public.payments e join public.payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'payments';
+  end if;
+
+  -- Despesa: paga por inteiro ou não paga (líquido de estornos).
+  if exists (
+    select 1 from public.expenses e
+     where e.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.expense_payments p where p.expense_id = e.id) not in (0, e.amount_cents)
+  ) or exists (
+    select 1 from public.expense_payments e join public.expense_payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'expense_payments';
+  end if;
+
+  -- Receita avulsa: o estorno tem a mesma data ou depois da receita (o valor e a categoria já são conferidos pela chave).
+  if exists (
+    select 1 from public.income_entries e join public.income_entries o on o.id = e.reverses_id
+     where e.company_id = p_company and e.received_on < o.received_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'income_entries';
+  end if;
+
+  -- Caixa: cada pagamento (de cliente ou de despesa) e cada receita avulsa tem exatamente um lançamento.
+  if exists (select 1 from public.payments p where p.company_id = p_company
+              and not exists (select 1 from public.ledger_entries l where l.payment_id = p.id))
+     or exists (select 1 from public.expense_payments p where p.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.expense_payment_id = p.id))
+     or exists (select 1 from public.income_entries i where i.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.income_entry_id = i.id)) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'ledger_entries';
+  end if;
+
+  perform public.audit_log(p_company, 'company.import', 'company', p_company, v_counts);
+  return v_counts;
+end
+$$;
+
+-- ---------- "Tem dados?" e contagem para o diagnóstico (agora com as metas) ----------
+
+create or replace function public.has_business_data() returns boolean
+language sql stable set search_path = ''
+as $$
+  select exists (select 1 from public.clients) or exists (select 1 from public.service_items)
+      or exists (select 1 from public.quotes) or exists (select 1 from public.expenses)
+      or exists (select 1 from public.tasks) or exists (select 1 from public.alert_states)
+      or exists (select 1 from public.ledger_entries) or exists (select 1 from public.income_entries)
+      or exists (select 1 from public.saved_answers) or exists (select 1 from public.revenue_goals)
+$$;
+
+-- Quantos registros há em cada tabela de negócio (para o diagnóstico: só números, nunca conteúdo).
+create or replace function public.table_counts() returns jsonb
+language sql stable set search_path = ''
+as $$
+  select jsonb_build_array(
+    jsonb_build_object('tabela', 'clients', 'n', (select count(*)::int from public.clients)),
+    jsonb_build_object('tabela', 'service_items', 'n', (select count(*)::int from public.service_items)),
+    jsonb_build_object('tabela', 'quotes', 'n', (select count(*)::int from public.quotes)),
+    jsonb_build_object('tabela', 'receivables', 'n', (select count(*)::int from public.receivables)),
+    jsonb_build_object('tabela', 'payments', 'n', (select count(*)::int from public.payments)),
+    jsonb_build_object('tabela', 'collection_events', 'n', (select count(*)::int from public.collection_events)),
+    jsonb_build_object('tabela', 'expenses', 'n', (select count(*)::int from public.expenses)),
+    jsonb_build_object('tabela', 'expense_payments', 'n', (select count(*)::int from public.expense_payments)),
+    jsonb_build_object('tabela', 'income_entries', 'n', (select count(*)::int from public.income_entries)),
+    jsonb_build_object('tabela', 'ledger_entries', 'n', (select count(*)::int from public.ledger_entries)),
+    jsonb_build_object('tabela', 'tasks', 'n', (select count(*)::int from public.tasks)),
+    jsonb_build_object('tabela', 'alert_states', 'n', (select count(*)::int from public.alert_states)),
+    jsonb_build_object('tabela', 'saved_answers', 'n', (select count(*)::int from public.saved_answers)),
+    jsonb_build_object('tabela', 'revenue_goals', 'n', (select count(*)::int from public.revenue_goals))
+  )
+$$;
+
+-- ---------- Permissões ----------
+
+revoke all on function public.save_revenue_goal(text, date, bigint) from public, anon;
+revoke all on function public.delete_revenue_goal(uuid) from public, anon;
+revoke all on function public.list_revenue_goals() from public, anon;
+grant execute on function public.save_revenue_goal(text, date, bigint) to authenticated;
+grant execute on function public.delete_revenue_goal(uuid) to authenticated;
+grant execute on function public.list_revenue_goals() to authenticated;
+`,ce=`-- NAP · 0018 · Agenda de serviços (ferramenta de empreendedor, plano NAP Empreendedor).
+-- Os compromissos de trabalho da pessoa: um serviço marcado para um dia (e, se quiser, horário), com cliente, local e
+-- observações. Regras de desenho:
+--   * um compromisso é um registro da AGENDA: nenhuma função de dinheiro lê esta tabela (como as metas e as respostas
+--     guardadas), então marcar, concluir ou cancelar um compromisso nunca muda saldo, relatório, parcela nem cobrança;
+--   * o estado é \`agendado\`, \`concluido\` ou \`cancelado\` e a pessoa troca à vontade (a agenda não é registro financeiro);
+--   * o horário é opcional; se houver fim, tem de haver início e o fim é depois do início;
+--   * o cliente é opcional, precisa ser da mesma empresa e, ao marcar, estar ativo;
+--   * apagar um compromisso é permitido; a auditoria guarda o fato, o dia e o estado, nunca o título, o local nem as
+--     observações;
+--   * o navegador só LÊ a tabela; quem grava são as funções abaixo, como nas outras;
+--   * exportação formato 9 e restauração dos formatos 2 a 9.
+
+create table public.appointments (
+  id uuid primary key default gen_random_uuid(),
+  company_id uuid not null references public.companies (id) on delete cascade,
+  title text not null constraint appointments_title_check check (char_length(btrim(title)) between 1 and 120),
+  on_date date not null constraint appointments_date_check check (on_date between date '2000-01-01' and date '2100-12-31'),
+  start_time time,
+  end_time time,
+  client_id uuid,
+  place text constraint appointments_place_check check (place is null or char_length(place) <= 200),
+  notes text constraint appointments_notes_check check (notes is null or char_length(notes) <= 1000),
+  status text not null default 'agendado' constraint appointments_status_check check (status in ('agendado', 'concluido', 'cancelado')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint appointments_time_check check (end_time is null or (start_time is not null and end_time > start_time)),
+  unique (company_id, id),
+  foreign key (company_id, client_id) references public.clients (company_id, id)
+);
+
+create index appointments_company_date_idx on public.appointments (company_id, on_date);
+
+create trigger appointments_touch before update on public.appointments
+for each row execute function public.touch_updated_at();
+
+select public.apply_company_rls('public.appointments', false);
+
+-- ---------- Gravar ----------
+
+-- Cria (sem id) ou edita (com id) um compromisso. O estado de um compromisso novo é "agendado"; para mudar o estado use
+-- \`set_appointment_status\`. Ao editar, o cliente que já estava ligado pode ter sido arquivado depois: só um cliente NOVO
+-- precisa estar ativo.
+create function public.save_appointment(
+  p_id uuid,
+  p_title text,
+  p_on date,
+  p_start time default null,
+  p_end time default null,
+  p_client uuid default null,
+  p_place text default null,
+  p_notes text default null
+) returns uuid
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+  v_old_client uuid;
+  v_title text := btrim(p_title);
+  v_place text := nullif(btrim(p_place), '');
+  v_notes text := nullif(btrim(p_notes), '');
+  v_status text;
+  v_id uuid;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  if p_id is null then
+    select m.company_id into v_company from public.company_members m where m.user_id = v_user limit 1;
+    if v_company is null then
+      raise exception 'not_member' using errcode = '42501';
+    end if;
+  else
+    select a.company_id, a.client_id into v_company, v_old_client from public.appointments a where a.id = p_id for update;
+    if v_company is null or not public.is_member(v_company) then
+      raise exception 'appointment_not_found' using errcode = 'P0002';
+    end if;
+  end if;
+
+  if v_title is null or char_length(v_title) not between 1 and 120 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'title';
+  end if;
+  if p_on is null or p_on < date '2000-01-01' or p_on > date '2100-12-31' then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'on_date';
+  end if;
+  if p_end is not null and (p_start is null or p_end <= p_start) then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'end_time';
+  end if;
+  if v_place is not null and char_length(v_place) > 200 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'place';
+  end if;
+  if v_notes is not null and char_length(v_notes) > 1000 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'notes';
+  end if;
+
+  if p_client is not null then
+    select c.status into v_status from public.clients c where c.id = p_client and c.company_id = v_company;
+    if v_status is null then
+      raise exception 'client_not_found' using errcode = 'P0002';
+    end if;
+    if v_status <> 'ativo' and p_client is distinct from v_old_client then
+      raise exception 'client_archived' using errcode = 'P0001';
+    end if;
+  end if;
+
+  if p_id is null then
+    insert into public.appointments (company_id, title, on_date, start_time, end_time, client_id, place, notes)
+      values (v_company, v_title, p_on, p_start, p_end, p_client, v_place, v_notes)
+      returning id, status into v_id, v_status;
+  else
+    update public.appointments
+       set title = v_title, on_date = p_on, start_time = p_start, end_time = p_end, client_id = p_client, place = v_place, notes = v_notes
+     where id = p_id
+     returning id, status into v_id, v_status;
+  end if;
+
+  -- Só o fato: o dia e o estado, nunca o título, o local nem as observações.
+  perform public.audit_log(v_company, case when p_id is null then 'appointment.create' else 'appointment.update' end, 'appointment', v_id,
+    jsonb_build_object('on_date', p_on::text, 'status', v_status));
+  return v_id;
+end
+$$;
+
+-- Troca o estado de um compromisso (agendado, concluido ou cancelado).
+create function public.set_appointment_status(p_id uuid, p_status text) returns void
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if p_status is null or p_status not in ('agendado', 'concluido', 'cancelado') then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'status';
+  end if;
+  select a.company_id into v_company from public.appointments a where a.id = p_id for update;
+  if v_company is null or not public.is_member(v_company) then
+    raise exception 'appointment_not_found' using errcode = 'P0002';
+  end if;
+  update public.appointments set status = p_status where id = p_id;
+  perform public.audit_log(v_company, 'appointment.status', 'appointment', p_id, jsonb_build_object('status', p_status));
+end
+$$;
+
+-- Apaga um compromisso (a agenda não é registro financeiro). Fica na auditoria, sem o texto.
+create function public.delete_appointment(p_id uuid) returns void
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+  v_date date;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  select a.company_id, a.on_date into v_company, v_date from public.appointments a where a.id = p_id for update;
+  if v_company is null or not public.is_member(v_company) then
+    raise exception 'appointment_not_found' using errcode = 'P0002';
+  end if;
+  delete from public.appointments where id = p_id;
+  perform public.audit_log(v_company, 'appointment.delete', 'appointment', p_id, jsonb_build_object('on_date', v_date::text));
+end
+$$;
+
+-- ---------- Ler (SECURITY INVOKER: a RLS decide o que existe, como nas outras leituras) ----------
+
+-- Os compromissos entre duas datas (inclusive; nulo = sem limite daquele lado), por dia e horário (os sem horário depois dos
+-- que têm). Cada um com o nome do cliente, se houver.
+create function public.list_appointments(p_from date default null, p_to date default null) returns jsonb
+language sql stable set search_path = ''
+as $$
+  select coalesce(jsonb_agg(to_jsonb(t) - '_inicio' - '_criado' order by t.on_date, t._inicio nulls last, t._criado, t.id), '[]'::jsonb)
+    from (
+      select a.id, a.title, a.on_date::text as on_date,
+             to_char(a.start_time, 'HH24:MI') as start_time, to_char(a.end_time, 'HH24:MI') as end_time,
+             a.client_id, c.name as client_name, a.place, a.notes, a.status,
+             public.iso_utc(a.created_at) as created_at, public.iso_utc(a.updated_at) as updated_at,
+             a.start_time as _inicio, a.created_at as _criado
+        from public.appointments a
+        left join public.clients c on c.id = a.client_id and c.company_id = a.company_id
+       where (p_from is null or a.on_date >= p_from)
+         and (p_to is null or a.on_date <= p_to)
+    ) t
+$$;
+
+-- ---------- Exportação (formato 9, com a agenda) ----------
+
+create or replace function public.export_company_data(p_company uuid) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+begin
+  if not public.is_member(p_company) then
+    raise exception 'not_member' using errcode = '42501';
+  end if;
+
+  perform public.audit_log(p_company, 'company.export', 'company', p_company);
+
+  return jsonb_build_object(
+    'format', 9,
+    'exported_at', now(),
+    'company', (select to_jsonb(c) from public.companies c where c.id = p_company),
+    'members', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.user_id)
+         from public.company_members t where t.company_id = p_company), '[]'::jsonb),
+    'clients', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.clients t where t.company_id = p_company), '[]'::jsonb),
+    'service_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.service_items t where t.company_id = p_company), '[]'::jsonb),
+    'quotes', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.number)
+         from public.quotes t where t.company_id = p_company), '[]'::jsonb),
+    'quote_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.quote_id, t.position)
+         from public.quote_items t where t.company_id = p_company), '[]'::jsonb),
+    'quote_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.id)
+         from public.quote_events t where t.company_id = p_company), '[]'::jsonb),
+    'orders', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.approved_at, t.id)
+         from public.orders t where t.company_id = p_company), '[]'::jsonb),
+    'receivables', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.order_id, t.number)
+         from public.receivables t where t.company_id = p_company), '[]'::jsonb),
+    'payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.payments t where t.company_id = p_company), '[]'::jsonb),
+    'collection_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.collection_events t where t.company_id = p_company), '[]'::jsonb),
+    'expenses', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.expenses t where t.company_id = p_company), '[]'::jsonb),
+    'expense_payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.expense_payments t where t.company_id = p_company), '[]'::jsonb),
+    'income_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.income_entries t where t.company_id = p_company), '[]'::jsonb),
+    'ledger_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.occurred_on, t.created_at, t.id)
+         from public.ledger_entries t where t.company_id = p_company), '[]'::jsonb),
+    'tasks', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.tasks t where t.company_id = p_company), '[]'::jsonb),
+    'alert_states', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.alert_key)
+         from public.alert_states t where t.company_id = p_company), '[]'::jsonb),
+    'saved_answers', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.saved_answers t where t.company_id = p_company), '[]'::jsonb),
+    'revenue_goals', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.period_start, t.period_kind desc, t.id)
+         from public.revenue_goals t where t.company_id = p_company), '[]'::jsonb),
+    'appointments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.on_date, t.start_time nulls last, t.created_at, t.id)
+         from public.appointments t where t.company_id = p_company), '[]'::jsonb),
+    'audit_events', coalesce(
+      (select jsonb_agg(to_jsonb(a) order by a.at)
+         from (select e.* from public.audit_events e
+                where e.company_id = p_company order by e.at desc limit 5000) a), '[]'::jsonb)
+  );
+end
+$$;
+
+-- ---------- Restauração (aceita cópias dos formatos 2 a 9) ----------
+
+create or replace function public.import_company_data(p_company uuid, p_data jsonb) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_format integer;
+  v_chave text;
+  v_counts jsonb := '{}'::jsonb;
+  v_n bigint;
+  v_empresa jsonb;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if not public.is_owner(p_company) then
+    raise exception 'not_owner' using errcode = '42501';
+  end if;
+
+  -- Formato do arquivo: um objeto de uma versão que sabemos ler (2 a 9); as listas, quando existem, são listas.
+  if p_data is null or jsonb_typeof(p_data) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  if (p_data ->> 'format') is null or (p_data ->> 'format') !~ '^[0-9]{1,3}$' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  v_format := (p_data ->> 'format')::integer;
+  if v_format < 2 or v_format > 9 then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  foreach v_chave in array array[
+    'clients', 'service_items', 'quotes', 'quote_items', 'quote_events', 'orders', 'receivables', 'payments',
+    'collection_events', 'expenses', 'expense_payments', 'income_entries', 'ledger_entries', 'tasks', 'alert_states',
+    'saved_answers', 'revenue_goals', 'appointments'
+  ] loop
+    if p_data ? v_chave and jsonb_typeof(p_data -> v_chave) <> 'array' then
+      raise exception 'import_format' using errcode = 'P0001';
+    end if;
+  end loop;
+  v_empresa := coalesce(p_data -> 'company', '{}'::jsonb);
+  if jsonb_typeof(v_empresa) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+
+  -- Só em empresa vazia.
+  if exists (select 1 from public.clients where company_id = p_company)
+     or exists (select 1 from public.service_items where company_id = p_company)
+     or exists (select 1 from public.quotes where company_id = p_company)
+     or exists (select 1 from public.expenses where company_id = p_company)
+     or exists (select 1 from public.tasks where company_id = p_company)
+     or exists (select 1 from public.alert_states where company_id = p_company)
+     or exists (select 1 from public.saved_answers where company_id = p_company)
+     or exists (select 1 from public.revenue_goals where company_id = p_company)
+     or exists (select 1 from public.appointments where company_id = p_company)
+     or exists (select 1 from public.income_entries where company_id = p_company)
+     or exists (select 1 from public.ledger_entries where company_id = p_company) then
+    raise exception 'company_not_empty' using errcode = 'P0001';
+  end if;
+
+  begin
+    insert into public.clients (id, company_id, name, email, phone, notes, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.email, r.phone, r.notes, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.clients, coalesce(p_data -> 'clients', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('clients', v_n);
+
+    insert into public.service_items (id, company_id, name, unit, base_price_cents, est_cost_cents, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.unit, r.base_price_cents, r.est_cost_cents, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.service_items, coalesce(p_data -> 'service_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('service_items', v_n);
+
+    insert into public.quotes (
+      id, company_id, client_id, number, status, valid_until, terms, notes, discount_kind, discount_value,
+      subtotal_cents, discount_cents, total_cents, sent_at, decided_at, created_at, updated_at
+    )
+    select r.id, p_company, r.client_id, r.number, r.status, r.valid_until, r.terms, r.notes, r.discount_kind,
+           r.discount_value, r.subtotal_cents, r.discount_cents, r.total_cents, r.sent_at, r.decided_at,
+           r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.quotes, coalesce(p_data -> 'quotes', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quotes', v_n);
+
+    insert into public.quote_items (id, company_id, quote_id, position, description, quantity_milli, unit_price_cents)
+    select r.id, p_company, r.quote_id, r.position, r.description, r.quantity_milli, r.unit_price_cents
+      from jsonb_populate_recordset(null::public.quote_items, coalesce(p_data -> 'quote_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_items', v_n);
+
+    insert into public.quote_events (id, company_id, quote_id, from_status, to_status, actor_user_id, at, confirmed, system)
+    overriding system value
+    select r.id, p_company, r.quote_id, r.from_status, r.to_status, r.actor_user_id, r.at, r.confirmed, r.system
+      from jsonb_populate_recordset(null::public.quote_events, coalesce(p_data -> 'quote_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_events', v_n);
+
+    insert into public.orders (id, company_id, quote_id, client_id, status, total_cents, approved_at, canceled_at)
+    select r.id, p_company, r.quote_id, r.client_id, r.status, r.total_cents, r.approved_at, r.canceled_at
+      from jsonb_populate_recordset(null::public.orders, coalesce(p_data -> 'orders', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('orders', v_n);
+
+    insert into public.receivables (id, company_id, order_id, number, kind, due_date, amount_cents, canceled_at, created_at)
+    select r.id, p_company, r.order_id, r.number, r.kind, r.due_date, r.amount_cents, r.canceled_at, r.created_at
+      from jsonb_populate_recordset(null::public.receivables, coalesce(p_data -> 'receivables', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('receivables', v_n);
+
+    insert into public.payments (
+      id, seq, company_id, receivable_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.payments, coalesce(p_data -> 'payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('payments', v_n);
+
+    insert into public.collection_events (id, seq, company_id, receivable_id, state, scheduled_for, note, created_by, created_at)
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.state, r.scheduled_for, r.note, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.collection_events, coalesce(p_data -> 'collection_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('collection_events', v_n);
+
+    insert into public.expenses (id, company_id, description, category, amount_cents, due_date, notes, canceled_at, created_at, updated_at)
+    select r.id, p_company, r.description, r.category, r.amount_cents, r.due_date, r.notes, r.canceled_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.expenses, coalesce(p_data -> 'expenses', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expenses', v_n);
+
+    insert into public.expense_payments (
+      id, seq, company_id, expense_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.expense_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.expense_payments, coalesce(p_data -> 'expense_payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expense_payments', v_n);
+
+    insert into public.income_entries (
+      id, seq, company_id, kind, category, description, amount_cents, received_on, client_id, note, reverses_id,
+      created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.kind, r.category, r.description, r.amount_cents, r.received_on, r.client_id, r.note,
+           r.reverses_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.income_entries, coalesce(p_data -> 'income_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('income_entries', v_n);
+
+    insert into public.ledger_entries (id, company_id, payment_id, expense_payment_id, income_entry_id, direction, amount_cents, occurred_on, created_at)
+    select r.id, p_company, r.payment_id, r.expense_payment_id, r.income_entry_id, r.direction, r.amount_cents, r.occurred_on, r.created_at
+      from jsonb_populate_recordset(null::public.ledger_entries, coalesce(p_data -> 'ledger_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('ledger_entries', v_n);
+
+    insert into public.tasks (id, company_id, title, due_date, client_id, notes, done_at, created_at, updated_at)
+    select r.id, p_company, r.title, r.due_date, r.client_id, r.notes, r.done_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.tasks, coalesce(p_data -> 'tasks', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('tasks', v_n);
+
+    insert into public.alert_states (company_id, alert_key, state, until, reason, updated_at)
+    select p_company, r.alert_key, r.state, r.until, r.reason, r.updated_at
+      from jsonb_populate_recordset(null::public.alert_states, coalesce(p_data -> 'alert_states', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('alert_states', v_n);
+
+    insert into public.saved_answers (id, company_id, question, answer, source_kind, source_label, verified_on, review_on, created_at, updated_at)
+    select r.id, p_company, r.question, r.answer, r.source_kind, r.source_label, r.verified_on, r.review_on, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.saved_answers, coalesce(p_data -> 'saved_answers', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('saved_answers', v_n);
+
+    insert into public.revenue_goals (id, company_id, period_kind, period_start, target_cents, created_at, updated_at)
+    select r.id, p_company, r.period_kind, r.period_start, r.target_cents, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.revenue_goals, coalesce(p_data -> 'revenue_goals', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('revenue_goals', v_n);
+
+    insert into public.appointments (id, company_id, title, on_date, start_time, end_time, client_id, place, notes, status, created_at, updated_at)
+    select r.id, p_company, r.title, r.on_date, r.start_time, r.end_time, r.client_id, r.place, r.notes, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.appointments, coalesce(p_data -> 'appointments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('appointments', v_n);
+
+    -- Os contadores seguem de onde a cópia parou (próximo número de orçamento, próximos ids das tabelas com sequência).
+    update public.companies set
+      quote_seq = greatest(
+        quote_seq,
+        coalesce((select max(q.number) from public.quotes q where q.company_id = p_company), 0),
+        case when (v_empresa ->> 'quote_seq') ~ '^[0-9]{1,9}$' then (v_empresa ->> 'quote_seq')::integer else 0 end
+      ),
+      opening_balance_cents = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                   then (v_empresa ->> 'opening_balance_cents')::bigint end,
+      opening_balance_on = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                then (v_empresa ->> 'opening_balance_on')::date end
+    where id = p_company;
+    perform setval(pg_get_serial_sequence('public.quote_events', 'id'), greatest((select coalesce(max(id), 0) from public.quote_events), 1),
+                   (select count(*) > 0 from public.quote_events));
+    perform setval(pg_get_serial_sequence('public.payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.payments), 1),
+                   (select count(*) > 0 from public.payments));
+    perform setval(pg_get_serial_sequence('public.expense_payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.expense_payments), 1),
+                   (select count(*) > 0 from public.expense_payments));
+    perform setval(pg_get_serial_sequence('public.collection_events', 'seq'), greatest((select coalesce(max(seq), 0) from public.collection_events), 1),
+                   (select count(*) > 0 from public.collection_events));
+    perform setval(pg_get_serial_sequence('public.income_entries', 'seq'), greatest((select coalesce(max(seq), 0) from public.income_entries), 1),
+                   (select count(*) > 0 from public.income_entries));
+  exception
+    when unique_violation then
+      -- Mesmo id já existe (neste aparelho ou em outra empresa): a cópia não pode entrar. Sem detalhes do que existe.
+      raise exception 'import_conflict' using errcode = 'P0001';
+    when foreign_key_violation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'references';
+    when check_violation or not_null_violation or invalid_text_representation or datetime_field_overflow
+         or invalid_datetime_format or numeric_value_out_of_range or invalid_parameter_value or string_data_right_truncation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'values';
+  end;
+
+  -- ---------- O dinheiro tem de fechar (as mesmas regras que as funções do servidor garantem ao gravar) ----------
+
+  -- Orçamento: subtotal = soma das linhas; desconto e total conforme o tipo de desconto.
+  if exists (
+    select 1
+      from public.quotes q
+      left join lateral (select coalesce(sum(i.line_total_cents), 0) as soma from public.quote_items i where i.quote_id = q.id) s on true
+     where q.company_id = p_company
+       and (q.subtotal_cents <> s.soma
+            or q.total_cents <> q.subtotal_cents - q.discount_cents
+            or q.discount_cents <> case q.discount_kind
+                                     when 'none' then 0
+                                     when 'percent' then public.money_percent(q.subtotal_cents, q.discount_value::integer)
+                                     else q.discount_value end)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'quotes';
+  end if;
+
+  -- Orçamento aprovado tem serviço; serviço só existe para orçamento aprovado ou cancelado depois de aprovado.
+  if exists (select 1 from public.quotes q where q.company_id = p_company and q.status = 'aprovado'
+              and not exists (select 1 from public.orders o where o.quote_id = q.id))
+     or exists (select 1 from public.orders o join public.quotes q on q.id = o.quote_id
+                 where o.company_id = p_company and q.status not in ('aprovado', 'cancelado')) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'orders';
+  end if;
+
+  -- Serviço: as parcelas somam o total.
+  if exists (
+    select 1 from public.orders o
+     where o.company_id = p_company
+       and o.total_cents <> (select coalesce(sum(r.amount_cents), 0) from public.receivables r where r.order_id = o.id)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'receivables';
+  end if;
+
+  -- Parcela: o pago líquido nunca passa do valor nem fica negativo; e o estorno tem a mesma data ou depois do pagamento.
+  if exists (
+    select 1 from public.receivables r
+     where r.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.payments p where p.receivable_id = r.id) not between 0 and r.amount_cents
+  ) or exists (
+    select 1 from public.payments e join public.payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'payments';
+  end if;
+
+  -- Despesa: paga por inteiro ou não paga (líquido de estornos).
+  if exists (
+    select 1 from public.expenses e
+     where e.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.expense_payments p where p.expense_id = e.id) not in (0, e.amount_cents)
+  ) or exists (
+    select 1 from public.expense_payments e join public.expense_payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'expense_payments';
+  end if;
+
+  -- Receita avulsa: o estorno tem a mesma data ou depois da receita (o valor e a categoria já são conferidos pela chave).
+  if exists (
+    select 1 from public.income_entries e join public.income_entries o on o.id = e.reverses_id
+     where e.company_id = p_company and e.received_on < o.received_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'income_entries';
+  end if;
+
+  -- Caixa: cada pagamento (de cliente ou de despesa) e cada receita avulsa tem exatamente um lançamento.
+  if exists (select 1 from public.payments p where p.company_id = p_company
+              and not exists (select 1 from public.ledger_entries l where l.payment_id = p.id))
+     or exists (select 1 from public.expense_payments p where p.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.expense_payment_id = p.id))
+     or exists (select 1 from public.income_entries i where i.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.income_entry_id = i.id)) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'ledger_entries';
+  end if;
+
+  perform public.audit_log(p_company, 'company.import', 'company', p_company, v_counts);
+  return v_counts;
+end
+$$;
+
+-- ---------- "Tem dados?" e contagem para o diagnóstico (agora com a agenda) ----------
+
+create or replace function public.has_business_data() returns boolean
+language sql stable set search_path = ''
+as $$
+  select exists (select 1 from public.clients) or exists (select 1 from public.service_items)
+      or exists (select 1 from public.quotes) or exists (select 1 from public.expenses)
+      or exists (select 1 from public.tasks) or exists (select 1 from public.alert_states)
+      or exists (select 1 from public.ledger_entries) or exists (select 1 from public.income_entries)
+      or exists (select 1 from public.saved_answers) or exists (select 1 from public.revenue_goals)
+      or exists (select 1 from public.appointments)
+$$;
+
+-- Quantos registros há em cada tabela de negócio (para o diagnóstico: só números, nunca conteúdo).
+create or replace function public.table_counts() returns jsonb
+language sql stable set search_path = ''
+as $$
+  select jsonb_build_array(
+    jsonb_build_object('tabela', 'clients', 'n', (select count(*)::int from public.clients)),
+    jsonb_build_object('tabela', 'service_items', 'n', (select count(*)::int from public.service_items)),
+    jsonb_build_object('tabela', 'quotes', 'n', (select count(*)::int from public.quotes)),
+    jsonb_build_object('tabela', 'receivables', 'n', (select count(*)::int from public.receivables)),
+    jsonb_build_object('tabela', 'payments', 'n', (select count(*)::int from public.payments)),
+    jsonb_build_object('tabela', 'collection_events', 'n', (select count(*)::int from public.collection_events)),
+    jsonb_build_object('tabela', 'expenses', 'n', (select count(*)::int from public.expenses)),
+    jsonb_build_object('tabela', 'expense_payments', 'n', (select count(*)::int from public.expense_payments)),
+    jsonb_build_object('tabela', 'income_entries', 'n', (select count(*)::int from public.income_entries)),
+    jsonb_build_object('tabela', 'ledger_entries', 'n', (select count(*)::int from public.ledger_entries)),
+    jsonb_build_object('tabela', 'tasks', 'n', (select count(*)::int from public.tasks)),
+    jsonb_build_object('tabela', 'alert_states', 'n', (select count(*)::int from public.alert_states)),
+    jsonb_build_object('tabela', 'saved_answers', 'n', (select count(*)::int from public.saved_answers)),
+    jsonb_build_object('tabela', 'revenue_goals', 'n', (select count(*)::int from public.revenue_goals)),
+    jsonb_build_object('tabela', 'appointments', 'n', (select count(*)::int from public.appointments))
+  )
+$$;
+
+-- ---------- Permissões ----------
+
+revoke all on function public.save_appointment(uuid, text, date, time, time, uuid, text, text) from public, anon;
+revoke all on function public.set_appointment_status(uuid, text) from public, anon;
+revoke all on function public.delete_appointment(uuid) from public, anon;
+revoke all on function public.list_appointments(date, date) from public, anon;
+grant execute on function public.save_appointment(uuid, text, date, time, time, uuid, text, text) to authenticated;
+grant execute on function public.set_appointment_status(uuid, text) to authenticated;
+grant execute on function public.delete_appointment(uuid) to authenticated;
+grant execute on function public.list_appointments(date, date) to authenticated;
+`,le=`-- NAP · 0019 · Filiais neste computador (ferramenta do plano NAP Empreendedor, só no aplicativo do computador).
+-- Uma filial é uma EMPRESA COMPLETA dentro do mesmo NAP: tem os próprios clientes, orçamentos, despesas e caixa. Quem a
+-- separa da matriz é o usuário dono dela (cada filial é de um "espaço": um usuário local próprio), então a RLS que já isola
+-- uma empresa da outra continua valendo sem mudar nenhuma tabela de negócio. Esta tabela é só o CADASTRO das filiais da
+-- matriz. Regras de desenho:
+--   * a tabela é da MATRIZ (company_id = a empresa de quem cadastra) e guarda qual usuário local é dono da filial
+--     (branch_user_id); a empresa da filial é a que esse usuário tem (\`current_company()\` nele);
+--   * uma filial nunca é apagada: ela fica \`ativa\`, \`pausada\` ou \`encerrada\` (com o dia do encerramento), e o histórico
+--     continua. Pausada e encerrada viram só consulta no aplicativo;
+--   * o apelido (nome curto para o menu) é único dentro da matriz, sem diferenciar maiúsculas de minúsculas;
+--   * nenhuma função de dinheiro lê esta tabela: criar, editar ou encerrar uma filial nunca muda saldo, relatório, parcela
+--     nem cobrança de ninguém;
+--   * o navegador só LÊ a tabela; quem grava são as funções abaixo (e quem as chama é o processo principal do aplicativo);
+--   * a auditoria guarda o fato e a situação, nunca o nome, o responsável, o contato nem as observações;
+--   * no máximo 20 filiais por matriz (um limite de sanidade; o limite do plano é do aplicativo);
+--   * exportação formato 10 (leva o cadastro das filiais) e restauração dos formatos 2 a 10.
+
+create table public.branches (
+  id uuid primary key default gen_random_uuid(),
+  company_id uuid not null references public.companies (id) on delete cascade,
+  branch_user_id uuid not null,
+  name text not null constraint branches_name_check check (char_length(btrim(name)) between 1 and 80),
+  nickname text not null constraint branches_nickname_check check (char_length(btrim(nickname)) between 1 and 24),
+  manager_name text constraint branches_manager_check check (manager_name is null or char_length(manager_name) <= 80),
+  contact text constraint branches_contact_check check (contact is null or char_length(contact) <= 120),
+  notes text constraint branches_notes_check check (notes is null or char_length(notes) <= 300),
+  status text not null default 'ativa' constraint branches_status_check check (status in ('ativa', 'pausada', 'encerrada')),
+  closed_on date,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint branches_closed_check check ((status = 'encerrada') = (closed_on is not null)),
+  constraint branches_user_unique unique (branch_user_id),
+  unique (company_id, id)
+);
+
+create unique index branches_company_nickname_idx on public.branches (company_id, lower(btrim(nickname)));
+
+create trigger branches_touch before update on public.branches
+for each row execute function public.touch_updated_at();
+
+select public.apply_company_rls('public.branches', false);
+
+-- ---------- Gravar ----------
+
+-- Cadastra (sem id) ou edita (com id) uma filial da matriz de quem chama. Ao cadastrar, \`p_branch_user\` é o usuário local que
+-- será dono da empresa da filial (o aplicativo cria esse usuário e a empresa dele antes); ao editar, ele é ignorado.
+-- A situação de uma filial nova é "ativa"; para mudar use \`set_branch_status\`.
+create function public.save_branch(
+  p_id uuid,
+  p_branch_user uuid,
+  p_name text,
+  p_nickname text,
+  p_manager text default null,
+  p_contact text default null,
+  p_notes text default null
+) returns uuid
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+  v_name text := btrim(p_name);
+  v_nickname text := btrim(p_nickname);
+  v_manager text := nullif(btrim(p_manager), '');
+  v_contact text := nullif(btrim(p_contact), '');
+  v_notes text := nullif(btrim(p_notes), '');
+  v_status text;
+  v_id uuid;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+
+  if p_id is null then
+    select m.company_id into v_company from public.company_members m where m.user_id = v_user limit 1;
+    if v_company is null then
+      raise exception 'not_member' using errcode = '42501';
+    end if;
+  else
+    select b.company_id into v_company from public.branches b where b.id = p_id for update;
+    if v_company is null or not public.is_member(v_company) then
+      raise exception 'branch_not_found' using errcode = 'P0002';
+    end if;
+  end if;
+
+  if v_name is null or char_length(v_name) not between 1 and 80 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'name';
+  end if;
+  if v_nickname is null or char_length(v_nickname) not between 1 and 24 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'nickname';
+  end if;
+  if v_manager is not null and char_length(v_manager) > 80 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'manager_name';
+  end if;
+  if v_contact is not null and char_length(v_contact) > 120 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'contact';
+  end if;
+  if v_notes is not null and char_length(v_notes) > 300 then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'notes';
+  end if;
+
+  -- O apelido é único na matriz (sem diferenciar maiúsculas); a própria filial pode manter o seu.
+  if exists (
+    select 1 from public.branches b
+     where b.company_id = v_company and lower(btrim(b.nickname)) = lower(v_nickname) and b.id is distinct from p_id
+  ) then
+    raise exception 'branch_nickname_taken' using errcode = 'P0001';
+  end if;
+
+  if p_id is null then
+    if p_branch_user is null or p_branch_user = v_user then
+      raise exception 'invalid_input' using errcode = '22023', detail = 'branch_user';
+    end if;
+    if exists (select 1 from public.branches b where b.branch_user_id = p_branch_user) then
+      raise exception 'invalid_input' using errcode = '22023', detail = 'branch_user';
+    end if;
+    -- O dono da filial precisa ter a empresa dela. (Cada usuário só pode pertencer a UMA empresa: o índice
+    -- \`company_members_one_company_per_user\` garante que ele não é também da matriz nem de outra filial.)
+    if not exists (select 1 from public.company_members m where m.user_id = p_branch_user and m.role = 'owner') then
+      raise exception 'invalid_input' using errcode = '22023', detail = 'branch_user';
+    end if;
+    if (select count(*) from public.branches b where b.company_id = v_company) >= 20 then
+      raise exception 'branch_limit' using errcode = 'P0001';
+    end if;
+    insert into public.branches (company_id, branch_user_id, name, nickname, manager_name, contact, notes)
+      values (v_company, p_branch_user, v_name, v_nickname, v_manager, v_contact, v_notes)
+      returning id, status into v_id, v_status;
+  else
+    update public.branches
+       set name = v_name, nickname = v_nickname, manager_name = v_manager, contact = v_contact, notes = v_notes
+     where id = p_id
+     returning id, status into v_id, v_status;
+  end if;
+
+  -- Só o fato e a situação: nunca o nome, o responsável, o contato nem as observações.
+  perform public.audit_log(v_company, case when p_id is null then 'branch.create' else 'branch.update' end, 'branch', v_id,
+    jsonb_build_object('status', v_status));
+  return v_id;
+end
+$$;
+
+-- Troca a situação de uma filial: ativa, pausada ou encerrada. Encerrar pede o dia do encerramento; as outras situações
+-- limpam esse dia. Nada é apagado.
+create function public.set_branch_status(p_id uuid, p_status text, p_on date default null) returns void
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_company uuid;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if p_status is null or p_status not in ('ativa', 'pausada', 'encerrada') then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'status';
+  end if;
+  if p_status = 'encerrada' and (p_on is null or p_on < date '2000-01-01' or p_on > date '2100-12-31') then
+    raise exception 'invalid_input' using errcode = '22023', detail = 'closed_on';
+  end if;
+  select b.company_id into v_company from public.branches b where b.id = p_id for update;
+  if v_company is null or not public.is_member(v_company) then
+    raise exception 'branch_not_found' using errcode = 'P0002';
+  end if;
+  update public.branches
+     set status = p_status, closed_on = case when p_status = 'encerrada' then p_on end
+   where id = p_id;
+  perform public.audit_log(v_company, 'branch.status', 'branch', p_id, jsonb_build_object('status', p_status));
+end
+$$;
+
+-- ---------- Ler (SECURITY INVOKER: a RLS decide o que existe, como nas outras leituras) ----------
+
+-- As filiais da matriz de quem chama, da mais antiga para a mais nova.
+create function public.list_branches() returns jsonb
+language sql stable set search_path = ''
+as $$
+  select coalesce(jsonb_agg(to_jsonb(t) - '_criado' order by t._criado, t.id), '[]'::jsonb)
+    from (
+      select b.id, b.branch_user_id, b.name, b.nickname, b.manager_name, b.contact, b.notes, b.status,
+             b.closed_on::text as closed_on,
+             public.iso_utc(b.created_at) as created_at, public.iso_utc(b.updated_at) as updated_at,
+             b.created_at as _criado
+        from public.branches b
+    ) t
+$$;
+
+-- ---------- Exportação (formato 10, com o cadastro das filiais) ----------
+
+create or replace function public.export_company_data(p_company uuid) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+begin
+  if not public.is_member(p_company) then
+    raise exception 'not_member' using errcode = '42501';
+  end if;
+
+  perform public.audit_log(p_company, 'company.export', 'company', p_company);
+
+  return jsonb_build_object(
+    'format', 10,
+    'exported_at', now(),
+    'company', (select to_jsonb(c) from public.companies c where c.id = p_company),
+    'members', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.user_id)
+         from public.company_members t where t.company_id = p_company), '[]'::jsonb),
+    'clients', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.clients t where t.company_id = p_company), '[]'::jsonb),
+    'service_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.service_items t where t.company_id = p_company), '[]'::jsonb),
+    'quotes', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.number)
+         from public.quotes t where t.company_id = p_company), '[]'::jsonb),
+    'quote_items', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.quote_id, t.position)
+         from public.quote_items t where t.company_id = p_company), '[]'::jsonb),
+    'quote_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.id)
+         from public.quote_events t where t.company_id = p_company), '[]'::jsonb),
+    'orders', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.approved_at, t.id)
+         from public.orders t where t.company_id = p_company), '[]'::jsonb),
+    'receivables', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.order_id, t.number)
+         from public.receivables t where t.company_id = p_company), '[]'::jsonb),
+    'payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.payments t where t.company_id = p_company), '[]'::jsonb),
+    'collection_events', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.collection_events t where t.company_id = p_company), '[]'::jsonb),
+    'expenses', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.expenses t where t.company_id = p_company), '[]'::jsonb),
+    'expense_payments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.expense_payments t where t.company_id = p_company), '[]'::jsonb),
+    'income_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.seq)
+         from public.income_entries t where t.company_id = p_company), '[]'::jsonb),
+    'ledger_entries', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.occurred_on, t.created_at, t.id)
+         from public.ledger_entries t where t.company_id = p_company), '[]'::jsonb),
+    'tasks', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.due_date, t.created_at, t.id)
+         from public.tasks t where t.company_id = p_company), '[]'::jsonb),
+    'alert_states', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.alert_key)
+         from public.alert_states t where t.company_id = p_company), '[]'::jsonb),
+    'saved_answers', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.saved_answers t where t.company_id = p_company), '[]'::jsonb),
+    'revenue_goals', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.period_start, t.period_kind desc, t.id)
+         from public.revenue_goals t where t.company_id = p_company), '[]'::jsonb),
+    'appointments', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.on_date, t.start_time nulls last, t.created_at, t.id)
+         from public.appointments t where t.company_id = p_company), '[]'::jsonb),
+    'branches', coalesce(
+      (select jsonb_agg(to_jsonb(t) order by t.created_at, t.id)
+         from public.branches t where t.company_id = p_company), '[]'::jsonb),
+    'audit_events', coalesce(
+      (select jsonb_agg(to_jsonb(a) order by a.at)
+         from (select e.* from public.audit_events e
+                where e.company_id = p_company order by e.at desc limit 5000) a), '[]'::jsonb)
+  );
+end
+$$;
+
+-- ---------- Restauração (aceita cópias dos formatos 2 a 10) ----------
+
+create or replace function public.import_company_data(p_company uuid, p_data jsonb) returns jsonb
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  v_user uuid := (select auth.uid());
+  v_format integer;
+  v_chave text;
+  v_counts jsonb := '{}'::jsonb;
+  v_n bigint;
+  v_empresa jsonb;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated' using errcode = '28000';
+  end if;
+  if not public.is_owner(p_company) then
+    raise exception 'not_owner' using errcode = '42501';
+  end if;
+
+  -- Formato do arquivo: um objeto de uma versão que sabemos ler (2 a 10); as listas, quando existem, são listas.
+  if p_data is null or jsonb_typeof(p_data) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  if (p_data ->> 'format') is null or (p_data ->> 'format') !~ '^[0-9]{1,3}$' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  v_format := (p_data ->> 'format')::integer;
+  if v_format < 2 or v_format > 10 then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+  foreach v_chave in array array[
+    'clients', 'service_items', 'quotes', 'quote_items', 'quote_events', 'orders', 'receivables', 'payments',
+    'collection_events', 'expenses', 'expense_payments', 'income_entries', 'ledger_entries', 'tasks', 'alert_states',
+    'saved_answers', 'revenue_goals', 'appointments', 'branches'
+  ] loop
+    if p_data ? v_chave and jsonb_typeof(p_data -> v_chave) <> 'array' then
+      raise exception 'import_format' using errcode = 'P0001';
+    end if;
+  end loop;
+  v_empresa := coalesce(p_data -> 'company', '{}'::jsonb);
+  if jsonb_typeof(v_empresa) <> 'object' then
+    raise exception 'import_format' using errcode = 'P0001';
+  end if;
+
+  -- Só em empresa vazia.
+  if exists (select 1 from public.clients where company_id = p_company)
+     or exists (select 1 from public.service_items where company_id = p_company)
+     or exists (select 1 from public.quotes where company_id = p_company)
+     or exists (select 1 from public.expenses where company_id = p_company)
+     or exists (select 1 from public.tasks where company_id = p_company)
+     or exists (select 1 from public.alert_states where company_id = p_company)
+     or exists (select 1 from public.saved_answers where company_id = p_company)
+     or exists (select 1 from public.revenue_goals where company_id = p_company)
+     or exists (select 1 from public.appointments where company_id = p_company)
+     or exists (select 1 from public.branches where company_id = p_company)
+     or exists (select 1 from public.income_entries where company_id = p_company)
+     or exists (select 1 from public.ledger_entries where company_id = p_company) then
+    raise exception 'company_not_empty' using errcode = 'P0001';
+  end if;
+
+  begin
+    insert into public.clients (id, company_id, name, email, phone, notes, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.email, r.phone, r.notes, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.clients, coalesce(p_data -> 'clients', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('clients', v_n);
+
+    insert into public.service_items (id, company_id, name, unit, base_price_cents, est_cost_cents, status, created_at, updated_at)
+    select r.id, p_company, r.name, r.unit, r.base_price_cents, r.est_cost_cents, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.service_items, coalesce(p_data -> 'service_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('service_items', v_n);
+
+    insert into public.quotes (
+      id, company_id, client_id, number, status, valid_until, terms, notes, discount_kind, discount_value,
+      subtotal_cents, discount_cents, total_cents, sent_at, decided_at, created_at, updated_at
+    )
+    select r.id, p_company, r.client_id, r.number, r.status, r.valid_until, r.terms, r.notes, r.discount_kind,
+           r.discount_value, r.subtotal_cents, r.discount_cents, r.total_cents, r.sent_at, r.decided_at,
+           r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.quotes, coalesce(p_data -> 'quotes', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quotes', v_n);
+
+    insert into public.quote_items (id, company_id, quote_id, position, description, quantity_milli, unit_price_cents)
+    select r.id, p_company, r.quote_id, r.position, r.description, r.quantity_milli, r.unit_price_cents
+      from jsonb_populate_recordset(null::public.quote_items, coalesce(p_data -> 'quote_items', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_items', v_n);
+
+    insert into public.quote_events (id, company_id, quote_id, from_status, to_status, actor_user_id, at, confirmed, system)
+    overriding system value
+    select r.id, p_company, r.quote_id, r.from_status, r.to_status, r.actor_user_id, r.at, r.confirmed, r.system
+      from jsonb_populate_recordset(null::public.quote_events, coalesce(p_data -> 'quote_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('quote_events', v_n);
+
+    insert into public.orders (id, company_id, quote_id, client_id, status, total_cents, approved_at, canceled_at)
+    select r.id, p_company, r.quote_id, r.client_id, r.status, r.total_cents, r.approved_at, r.canceled_at
+      from jsonb_populate_recordset(null::public.orders, coalesce(p_data -> 'orders', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('orders', v_n);
+
+    insert into public.receivables (id, company_id, order_id, number, kind, due_date, amount_cents, canceled_at, created_at)
+    select r.id, p_company, r.order_id, r.number, r.kind, r.due_date, r.amount_cents, r.canceled_at, r.created_at
+      from jsonb_populate_recordset(null::public.receivables, coalesce(p_data -> 'receivables', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('receivables', v_n);
+
+    insert into public.payments (
+      id, seq, company_id, receivable_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.payments, coalesce(p_data -> 'payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('payments', v_n);
+
+    insert into public.collection_events (id, seq, company_id, receivable_id, state, scheduled_for, note, created_by, created_at)
+    overriding system value
+    select r.id, r.seq, p_company, r.receivable_id, r.state, r.scheduled_for, r.note, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.collection_events, coalesce(p_data -> 'collection_events', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('collection_events', v_n);
+
+    insert into public.expenses (id, company_id, description, category, amount_cents, due_date, notes, canceled_at, created_at, updated_at)
+    select r.id, p_company, r.description, r.category, r.amount_cents, r.due_date, r.notes, r.canceled_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.expenses, coalesce(p_data -> 'expenses', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expenses', v_n);
+
+    insert into public.expense_payments (
+      id, seq, company_id, expense_id, kind, amount_cents, paid_on, method, note, reverses_payment_id, created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.expense_id, r.kind, r.amount_cents, r.paid_on, r.method, r.note,
+           r.reverses_payment_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.expense_payments, coalesce(p_data -> 'expense_payments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('expense_payments', v_n);
+
+    insert into public.income_entries (
+      id, seq, company_id, kind, category, description, amount_cents, received_on, client_id, note, reverses_id,
+      created_by, created_at
+    )
+    overriding system value
+    select r.id, r.seq, p_company, r.kind, r.category, r.description, r.amount_cents, r.received_on, r.client_id, r.note,
+           r.reverses_id, r.created_by, r.created_at
+      from jsonb_populate_recordset(null::public.income_entries, coalesce(p_data -> 'income_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('income_entries', v_n);
+
+    insert into public.ledger_entries (id, company_id, payment_id, expense_payment_id, income_entry_id, direction, amount_cents, occurred_on, created_at)
+    select r.id, p_company, r.payment_id, r.expense_payment_id, r.income_entry_id, r.direction, r.amount_cents, r.occurred_on, r.created_at
+      from jsonb_populate_recordset(null::public.ledger_entries, coalesce(p_data -> 'ledger_entries', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('ledger_entries', v_n);
+
+    insert into public.tasks (id, company_id, title, due_date, client_id, notes, done_at, created_at, updated_at)
+    select r.id, p_company, r.title, r.due_date, r.client_id, r.notes, r.done_at, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.tasks, coalesce(p_data -> 'tasks', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('tasks', v_n);
+
+    insert into public.alert_states (company_id, alert_key, state, until, reason, updated_at)
+    select p_company, r.alert_key, r.state, r.until, r.reason, r.updated_at
+      from jsonb_populate_recordset(null::public.alert_states, coalesce(p_data -> 'alert_states', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('alert_states', v_n);
+
+    insert into public.saved_answers (id, company_id, question, answer, source_kind, source_label, verified_on, review_on, created_at, updated_at)
+    select r.id, p_company, r.question, r.answer, r.source_kind, r.source_label, r.verified_on, r.review_on, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.saved_answers, coalesce(p_data -> 'saved_answers', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('saved_answers', v_n);
+
+    insert into public.revenue_goals (id, company_id, period_kind, period_start, target_cents, created_at, updated_at)
+    select r.id, p_company, r.period_kind, r.period_start, r.target_cents, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.revenue_goals, coalesce(p_data -> 'revenue_goals', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('revenue_goals', v_n);
+
+    insert into public.appointments (id, company_id, title, on_date, start_time, end_time, client_id, place, notes, status, created_at, updated_at)
+    select r.id, p_company, r.title, r.on_date, r.start_time, r.end_time, r.client_id, r.place, r.notes, r.status, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.appointments, coalesce(p_data -> 'appointments', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('appointments', v_n);
+
+    insert into public.branches (id, company_id, branch_user_id, name, nickname, manager_name, contact, notes, status, closed_on, created_at, updated_at)
+    select r.id, p_company, r.branch_user_id, r.name, r.nickname, r.manager_name, r.contact, r.notes, r.status, r.closed_on, r.created_at, r.updated_at
+      from jsonb_populate_recordset(null::public.branches, coalesce(p_data -> 'branches', '[]'::jsonb)) r;
+    get diagnostics v_n = row_count;
+    v_counts := v_counts || jsonb_build_object('branches', v_n);
+
+    -- Os contadores seguem de onde a cópia parou (próximo número de orçamento, próximos ids das tabelas com sequência).
+    update public.companies set
+      quote_seq = greatest(
+        quote_seq,
+        coalesce((select max(q.number) from public.quotes q where q.company_id = p_company), 0),
+        case when (v_empresa ->> 'quote_seq') ~ '^[0-9]{1,9}$' then (v_empresa ->> 'quote_seq')::integer else 0 end
+      ),
+      opening_balance_cents = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                   then (v_empresa ->> 'opening_balance_cents')::bigint end,
+      opening_balance_on = case when (v_empresa ->> 'opening_balance_cents') ~ '^-?[0-9]{1,13}$'
+                                then (v_empresa ->> 'opening_balance_on')::date end
+    where id = p_company;
+    perform setval(pg_get_serial_sequence('public.quote_events', 'id'), greatest((select coalesce(max(id), 0) from public.quote_events), 1),
+                   (select count(*) > 0 from public.quote_events));
+    perform setval(pg_get_serial_sequence('public.payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.payments), 1),
+                   (select count(*) > 0 from public.payments));
+    perform setval(pg_get_serial_sequence('public.expense_payments', 'seq'), greatest((select coalesce(max(seq), 0) from public.expense_payments), 1),
+                   (select count(*) > 0 from public.expense_payments));
+    perform setval(pg_get_serial_sequence('public.collection_events', 'seq'), greatest((select coalesce(max(seq), 0) from public.collection_events), 1),
+                   (select count(*) > 0 from public.collection_events));
+    perform setval(pg_get_serial_sequence('public.income_entries', 'seq'), greatest((select coalesce(max(seq), 0) from public.income_entries), 1),
+                   (select count(*) > 0 from public.income_entries));
+  exception
+    when unique_violation then
+      -- Mesmo id já existe (neste aparelho ou em outra empresa): a cópia não pode entrar. Sem detalhes do que existe.
+      raise exception 'import_conflict' using errcode = 'P0001';
+    when foreign_key_violation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'references';
+    when check_violation or not_null_violation or invalid_text_representation or datetime_field_overflow
+         or invalid_datetime_format or numeric_value_out_of_range or invalid_parameter_value or string_data_right_truncation then
+      raise exception 'import_invalid' using errcode = 'P0001', detail = 'values';
+  end;
+
+  -- ---------- O dinheiro tem de fechar (as mesmas regras que as funções do servidor garantem ao gravar) ----------
+
+  -- Orçamento: subtotal = soma das linhas; desconto e total conforme o tipo de desconto.
+  if exists (
+    select 1
+      from public.quotes q
+      left join lateral (select coalesce(sum(i.line_total_cents), 0) as soma from public.quote_items i where i.quote_id = q.id) s on true
+     where q.company_id = p_company
+       and (q.subtotal_cents <> s.soma
+            or q.total_cents <> q.subtotal_cents - q.discount_cents
+            or q.discount_cents <> case q.discount_kind
+                                     when 'none' then 0
+                                     when 'percent' then public.money_percent(q.subtotal_cents, q.discount_value::integer)
+                                     else q.discount_value end)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'quotes';
+  end if;
+
+  -- Orçamento aprovado tem serviço; serviço só existe para orçamento aprovado ou cancelado depois de aprovado.
+  if exists (select 1 from public.quotes q where q.company_id = p_company and q.status = 'aprovado'
+              and not exists (select 1 from public.orders o where o.quote_id = q.id))
+     or exists (select 1 from public.orders o join public.quotes q on q.id = o.quote_id
+                 where o.company_id = p_company and q.status not in ('aprovado', 'cancelado')) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'orders';
+  end if;
+
+  -- Serviço: as parcelas somam o total.
+  if exists (
+    select 1 from public.orders o
+     where o.company_id = p_company
+       and o.total_cents <> (select coalesce(sum(r.amount_cents), 0) from public.receivables r where r.order_id = o.id)
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'receivables';
+  end if;
+
+  -- Parcela: o pago líquido nunca passa do valor nem fica negativo; e o estorno tem a mesma data ou depois do pagamento.
+  if exists (
+    select 1 from public.receivables r
+     where r.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.payments p where p.receivable_id = r.id) not between 0 and r.amount_cents
+  ) or exists (
+    select 1 from public.payments e join public.payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'payments';
+  end if;
+
+  -- Despesa: paga por inteiro ou não paga (líquido de estornos).
+  if exists (
+    select 1 from public.expenses e
+     where e.company_id = p_company
+       and (select coalesce(sum(case p.kind when 'pagamento' then p.amount_cents else -p.amount_cents end), 0)
+              from public.expense_payments p where p.expense_id = e.id) not in (0, e.amount_cents)
+  ) or exists (
+    select 1 from public.expense_payments e join public.expense_payments o on o.id = e.reverses_payment_id
+     where e.company_id = p_company and e.paid_on < o.paid_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'expense_payments';
+  end if;
+
+  -- Receita avulsa: o estorno tem a mesma data ou depois da receita (o valor e a categoria já são conferidos pela chave).
+  if exists (
+    select 1 from public.income_entries e join public.income_entries o on o.id = e.reverses_id
+     where e.company_id = p_company and e.received_on < o.received_on
+  ) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'income_entries';
+  end if;
+
+  -- Caixa: cada pagamento (de cliente ou de despesa) e cada receita avulsa tem exatamente um lançamento.
+  if exists (select 1 from public.payments p where p.company_id = p_company
+              and not exists (select 1 from public.ledger_entries l where l.payment_id = p.id))
+     or exists (select 1 from public.expense_payments p where p.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.expense_payment_id = p.id))
+     or exists (select 1 from public.income_entries i where i.company_id = p_company
+                 and not exists (select 1 from public.ledger_entries l where l.income_entry_id = i.id)) then
+    raise exception 'import_inconsistent' using errcode = 'P0001', detail = 'ledger_entries';
+  end if;
+
+  perform public.audit_log(p_company, 'company.import', 'company', p_company, v_counts);
+  return v_counts;
+end
+$$;
+
+-- ---------- "Tem dados?" e contagem para o diagnóstico (agora com as filiais) ----------
+
+create or replace function public.has_business_data() returns boolean
+language sql stable set search_path = ''
+as $$
+  select exists (select 1 from public.clients) or exists (select 1 from public.service_items)
+      or exists (select 1 from public.quotes) or exists (select 1 from public.expenses)
+      or exists (select 1 from public.tasks) or exists (select 1 from public.alert_states)
+      or exists (select 1 from public.ledger_entries) or exists (select 1 from public.income_entries)
+      or exists (select 1 from public.saved_answers) or exists (select 1 from public.revenue_goals)
+      or exists (select 1 from public.appointments)
+      or exists (select 1 from public.branches)
+$$;
+
+-- Quantos registros há em cada tabela de negócio (para o diagnóstico: só números, nunca conteúdo).
+create or replace function public.table_counts() returns jsonb
+language sql stable set search_path = ''
+as $$
+  select jsonb_build_array(
+    jsonb_build_object('tabela', 'clients', 'n', (select count(*)::int from public.clients)),
+    jsonb_build_object('tabela', 'service_items', 'n', (select count(*)::int from public.service_items)),
+    jsonb_build_object('tabela', 'quotes', 'n', (select count(*)::int from public.quotes)),
+    jsonb_build_object('tabela', 'receivables', 'n', (select count(*)::int from public.receivables)),
+    jsonb_build_object('tabela', 'payments', 'n', (select count(*)::int from public.payments)),
+    jsonb_build_object('tabela', 'collection_events', 'n', (select count(*)::int from public.collection_events)),
+    jsonb_build_object('tabela', 'expenses', 'n', (select count(*)::int from public.expenses)),
+    jsonb_build_object('tabela', 'expense_payments', 'n', (select count(*)::int from public.expense_payments)),
+    jsonb_build_object('tabela', 'income_entries', 'n', (select count(*)::int from public.income_entries)),
+    jsonb_build_object('tabela', 'ledger_entries', 'n', (select count(*)::int from public.ledger_entries)),
+    jsonb_build_object('tabela', 'tasks', 'n', (select count(*)::int from public.tasks)),
+    jsonb_build_object('tabela', 'alert_states', 'n', (select count(*)::int from public.alert_states)),
+    jsonb_build_object('tabela', 'saved_answers', 'n', (select count(*)::int from public.saved_answers)),
+    jsonb_build_object('tabela', 'revenue_goals', 'n', (select count(*)::int from public.revenue_goals)),
+    jsonb_build_object('tabela', 'appointments', 'n', (select count(*)::int from public.appointments)),
+    jsonb_build_object('tabela', 'branches', 'n', (select count(*)::int from public.branches))
+  )
+$$;
+
+-- ---------- Permissões ----------
+
+revoke all on function public.save_branch(uuid, uuid, text, text, text, text, text) from public, anon;
+revoke all on function public.set_branch_status(uuid, text, date) from public, anon;
+revoke all on function public.list_branches() from public, anon;
+grant execute on function public.save_branch(uuid, uuid, text, text, text, text, text) to authenticated;
+grant execute on function public.set_branch_status(uuid, text, date) to authenticated;
+grant execute on function public.list_branches() to authenticated;
+`,ue=`-- AMBIENTE DE COMPATIBILIDADE COM O SUPABASE. Imita o que o Supabase já fornece (esquema auth, papéis,
 -- auth.uid() e os privilégios padrão), para as migrações rodarem no PGlite sem Docker e sem conta.
 -- Usado pelos testes (supabase/tests) e pelo modo local do app (src/data, banco dentro do navegador).
 -- NUNCA entra em supabase/migrations e NUNCA deve ser aplicado num projeto Supabase de verdade.
@@ -5087,10 +6885,10 @@ grant execute on function auth.uid() to anon, authenticated, service_role;
 alter default privileges for role postgres in schema public grant all on tables to anon, authenticated, service_role;
 alter default privileges for role postgres in schema public grant all on functions to anon, authenticated, service_role;
 alter default privileges for role postgres in schema public grant all on sequences to anon, authenticated, service_role;
-`,J=Object.assign({"../../supabase/migrations/0001_nucleo.sql":M,"../../supabase/migrations/0002_auditoria.sql":N,"../../supabase/migrations/0003_empresa.sql":P,"../../supabase/migrations/0004_regras_dinheiro.sql":F,"../../supabase/migrations/0005_clientes_servicos.sql":I,"../../supabase/migrations/0006_orcamentos.sql":L,"../../supabase/migrations/0007_recebimentos.sql":R,"../../supabase/migrations/0008_despesas.sql":z,"../../supabase/migrations/0009_saldo_e_recorrencia.sql":B,"../../supabase/migrations/0010_tarefas.sql":V,"../../supabase/migrations/0011_restaurar.sql":H,"../../supabase/migrations/0012_rls_rapida.sql":U,"../../supabase/migrations/0013_leituras_como_funcoes.sql":ie,"../../supabase/migrations/0014_respostas_guardadas.sql":W,"../../supabase/migrations/0015_cobranca.sql":G,"../../supabase/migrations/0016_receita_avulsa.sql":K}),Y=q,ae=Object.entries(J).map(([e,t])=>({nome:e.split(`/`).pop(),sql:t})).sort((e,t)=>e.nome.localeCompare(t.nome)),oe=`0000_compat.sql`;async function se(e,t,n){await e.exec(`
+`,de=Object.assign({"../../supabase/migrations/0001_nucleo.sql":L,"../../supabase/migrations/0002_auditoria.sql":R,"../../supabase/migrations/0003_empresa.sql":z,"../../supabase/migrations/0004_regras_dinheiro.sql":B,"../../supabase/migrations/0005_clientes_servicos.sql":V,"../../supabase/migrations/0006_orcamentos.sql":H,"../../supabase/migrations/0007_recebimentos.sql":U,"../../supabase/migrations/0008_despesas.sql":W,"../../supabase/migrations/0009_saldo_e_recorrencia.sql":G,"../../supabase/migrations/0010_tarefas.sql":K,"../../supabase/migrations/0011_restaurar.sql":q,"../../supabase/migrations/0012_rls_rapida.sql":ie,"../../supabase/migrations/0013_leituras_como_funcoes.sql":J,"../../supabase/migrations/0014_respostas_guardadas.sql":Y,"../../supabase/migrations/0015_cobranca.sql":ae,"../../supabase/migrations/0016_receita_avulsa.sql":oe,"../../supabase/migrations/0017_metas.sql":se,"../../supabase/migrations/0018_agenda.sql":ce,"../../supabase/migrations/0019_filiais.sql":le}),fe=ue,pe=Object.entries(de).map(([e,t])=>({nome:e.split(`/`).pop(),sql:t})).sort((e,t)=>e.nome.localeCompare(t.nome)),me=`0000_compat.sql`;async function he(e,t,n){await e.exec(`
     create schema if not exists nap;
     create table if not exists nap.migrations (
       name text primary key,
       applied_at timestamptz not null default now()
     );
-  `);let r=new Set((await e.query(`select name from nap.migrations`)).rows.map(e=>e.name)),i=[],a=[{nome:oe,sql:t},...[...n].sort((e,t)=>e.nome.localeCompare(t.nome))];for(let t of a)r.has(t.nome)||(await e.transaction(async e=>{await e.exec(t.sql),await e.query(`insert into nap.migrations (name) values ($1)`,[t.nome])}),i.push(t.nome));return i}async function ce(e,t){await se(e,Y,ae),await e.query(`insert into auth.users (id, email) values ($1, $2) on conflict do nothing`,[t,`local@dispositivo`]),await e.query(`select public.run_retention()`),await E(e)}var X=`00000000-0000-4000-8000-00000000a001`;async function Z(e=`nap-banco-local`){typeof navigator<`u`&&`locks`in navigator&&await new Promise((t,n)=>{navigator.locks.request(e,{ifAvailable:!0},e=>{if(!e)n(new i(`banco_em_uso`,`O NAP já está aberto em outra aba ou janela deste navegador. Feche a outra e recarregue esta página.`));else return t(),new Promise(()=>{})})})}var le=`Estúdio Exemplo (demonstração)`,ue=`example.com`,Q=(e,t=0)=>e*100+t;async function $(e,t,r,i){return await e.quotes.transition(t,`enviado`),await e.quotes.approve(t,{downPaymentCents:r.sinal?.cents??0,downPaymentDueDate:r.sinal?n(i,r.sinal.venceEmDias):void 0,installmentCount:r.parcelas,firstDueDate:r.parcelas>0?n(i,r.primeiraEmDias):void 0}),[...await e.receivables.list({quoteId:t})].sort((e,t)=>e.number-t.number)}async function de(e,t){await e.company.create(le),await e.company.setOpeningBalance({cents:Q(3e3),on:n(t,-150)});let r=[`Ana`,`Bruno`,`Carla`,`Diego`,`Elisa`,`Fábio`,`Gabriela`,`Henrique`],i={};for(let[t,n]of r.entries())i[n]=(await e.clients.create({name:`${n} Exemplo`,email:`${n.toLowerCase().replace(`á`,`a`)}@${ue}`,phone:`(00) 90000-000${t+1}`,notes:t===0?`Cliente de exemplo: prefere receber a proposta por e-mail.`:void 0})).id;await e.clients.setStatus(i.Henrique,`arquivado`);let a=[[`Logotipo`,`un`,Q(950),Q(320)],[`Identidade visual completa`,`un`,Q(3200),Q(1100)],[`Site institucional`,`un`,Q(5400),Q(1900)],[`Manutenção mensal do site`,`mês`,Q(300),Q(80)],[`Consultoria de marca`,`hora`,Q(180),Q(40)],[`Cartões de visita (milheiro)`,`un`,Q(260),Q(150)]];for(let[t,n,r,i]of a)await e.services.create({name:t,unit:n,basePriceCents:r,estCostCents:i});let o=(r,a,o,s)=>e.quotes.save({clientId:i[r],validUntil:n(t,o),terms:`Pagamento conforme o plano combinado. Valores sujeitos a alteração se o escopo mudar.`,discount:s?{kind:`percent`,bps:s.bps}:{kind:`none`},items:a.map(([e,t,n])=>({description:e,quantityMilli:t,unitPriceCents:n}))}),s=async(r,i)=>e.receivables.registerPayment({receivableId:r.id,amountCents:i.cents??r.amountCents-r.paidCents,paidOn:n(t,-i.diasAtras),method:i.forma??`pix`}),c=await $(e,await o(`Ana`,[[`Identidade visual completa`,1e3,Q(3200)]],15),{sinal:{cents:Q(1200),venceEmDias:-80},parcelas:2,primeiraEmDias:-50},t);await s(c[0],{diasAtras:80}),await s(c[1],{diasAtras:50});let l=await e.receivables.registerPayment({receivableId:c[2].id,amountCents:Q(900),paidOn:n(t,-21),method:`pix`});await e.receivables.reversePayment(l,{paidOn:n(t,-20),note:`Valor lançado errado`}),await s(c[2],{diasAtras:19});let u=await $(e,await o(`Bruno`,[[`Site institucional`,1e3,Q(5400)],[`Cartões de visita (milheiro)`,2e3,Q(260)]],20,{bps:500}),{sinal:{cents:Q(1800),venceEmDias:-45},parcelas:3,primeiraEmDias:-15},t);await s(u[0],{diasAtras:45}),await s(u[1],{diasAtras:14,cents:Q(600)});let d=await $(e,await o(`Carla`,[[`Manutenção mensal do site`,6e3,Q(300)]],10),{parcelas:1,primeiraEmDias:-6},t);await e.collection.setState({receivableId:d[0].id,state:`mensagem_preparada`}),await e.collection.setState({receivableId:d[0].id,state:`enviada`,note:`Mandei a cobrança no WhatsApp (exemplo).`});let f=await $(e,await o(`Diego`,[[`Logotipo`,1e3,Q(950)]],12),{parcelas:1,primeiraEmDias:10},t);await e.collection.setState({receivableId:f[0].id,state:`agendada`,scheduledFor:n(t,8)}),await e.quotes.transition(await o(`Elisa`,[[`Site institucional`,1e3,Q(2400)]],12),`enviado`),await e.quotes.transition(await o(`Fábio`,[[`Consultoria de marca`,4e3,Q(180)],[`Logotipo`,1e3,Q(60)]],9),`enviado`),await o(`Gabriela`,[[`Cartões de visita (milheiro)`,3e3,Q(260)]],15);let p=await o(`Bruno`,[[`Consultoria de marca`,2e3,Q(180)]],15);await e.quotes.transition(p,`enviado`),await e.quotes.transition(p,`recusado`);let m=[[`Aluguel da sala`,`aluguel`,Q(1200)],[`Programa de design`,`servicos`,Q(89,90)],[`DAS (imposto do MEI)`,`impostos`,Q(71)]];for(let[r,i,a]of m)await e.expenses.saveSeries({description:r,category:i,amountCents:a,dueDate:n(t,-150)},6);await e.expenses.pay(await e.expenses.save(void 0,{description:`Papelaria e materiais`,category:`materiais`,amountCents:Q(142,30),dueDate:n(t,-40)}),{paidOn:n(t,-40),method:`cartao`}),await e.expenses.pay(await e.expenses.save(void 0,{description:`Retirada do mês`,category:`retirada`,amountCents:Q(1500),dueDate:n(t,-25)}),{paidOn:n(t,-25),method:`pix`}),await e.expenses.save(void 0,{description:`Renovação do domínio do site`,category:`servicos`,amountCents:Q(40),dueDate:n(t,20)});for(let r of await e.expenses.list())r.dueDate<n(t,-3)&&r.paidCents===0&&await e.expenses.pay(r.id,{paidOn:r.dueDate,method:`transferencia`});let h=[[`Venda de 10 cartões avulsos`,`venda`,Q(240),-70],[`Ajuste rápido em arquivo de impressão`,`servico_avulso`,Q(180),-42],[`Venda de adesivos`,`venda`,Q(95),-21],[`Aula particular de design`,`outros`,Q(60),-9]];for(let[r,i,a,o]of h)await e.incomes.save({description:r,category:i,amountCents:a,receivedOn:n(t,o),confirmed:!0});let g=await e.incomes.save({description:`Venda lançada em duplicidade`,category:`venda`,amountCents:Q(150),receivedOn:n(t,-30),confirmed:!0});await e.incomes.reverse(g,{paidOn:n(t,-29),note:`Lancei duas vezes`}),await e.tasks.save(void 0,{title:`Ligar para a Carla sobre a parcela atrasada`,dueDate:n(t,1),clientId:i.Carla,notes:`Exemplo de lembrete ligado a um cliente.`}),await e.tasks.save(void 0,{title:`Enviar o orçamento revisado para a Elisa`,dueDate:n(t,3),clientId:i.Elisa});let _=await e.tasks.save(void 0,{title:`Conferir as despesas do mês passado`,dueDate:n(t,-5)});await e.tasks.setDone(_,!0)}var fe=`nap-banco-demo`;async function pe(n){let o;try{await Z(fe);let{PGlite:i}=await t(async()=>{let{PGlite:e}=await import(`./dist-B4oU2jtd.js`);return{PGlite:e}},__vite__mapDeps([0,1,2]),import.meta.url);o=new i(`idb://${s}`),await o.waitReady,await ce(o,X);let c=j(o,X,()=>{});if(!await c.company.current())try{await de(c,e(new Date))}catch(e){throw await o.close().catch(()=>void 0),o=void 0,await r(),e}let l=o;return a(()=>l.close()),j(o,X,n)}catch(e){throw e instanceof i?e:new i(`indisponivel`,`Não foi possível preparar a demonstração neste navegador. Ele pode estar em modo privado ou sem espaço. Recarregue a página para tentar de novo.`,void 0,e)}}export{pe as abrirDadosDaDemonstracao};
+  `);let r=new Set((await e.query(`select name from nap.migrations`)).rows.map(e=>e.name)),i=[],a=[{nome:me,sql:t},...[...n].sort((e,t)=>e.nome.localeCompare(t.nome))];for(let t of a)r.has(t.nome)||(await e.transaction(async e=>{await e.exec(t.sql),await e.query(`insert into nap.migrations (name) values ($1)`,[t.nome])}),i.push(t.nome));return i}async function ge(e,t){await he(e,fe,pe),await e.query(`insert into auth.users (id, email) values ($1, $2) on conflict do nothing`,[t,`local@dispositivo`]),await e.query(`select public.run_retention()`),await D(e)}var X=`00000000-0000-4000-8000-00000000a001`;async function _e(e=`nap-banco-local`){typeof navigator<`u`&&`locks`in navigator&&await new Promise((t,n)=>{navigator.locks.request(e,{ifAvailable:!0},e=>{if(!e)n(new i(`banco_em_uso`,`O NAP já está aberto em outra aba ou janela deste navegador. Feche a outra e recarregue esta página.`));else return t(),new Promise(()=>{})})})}var ve=`Estúdio Exemplo (demonstração)`,Z=`example.com`,Q=(e,t=0)=>e*100+t;async function $(e,t,r,i){return await e.quotes.transition(t,`enviado`),await e.quotes.approve(t,{downPaymentCents:r.sinal?.cents??0,downPaymentDueDate:r.sinal?n(i,r.sinal.venceEmDias):void 0,installmentCount:r.parcelas,firstDueDate:r.parcelas>0?n(i,r.primeiraEmDias):void 0}),[...await e.receivables.list({quoteId:t})].sort((e,t)=>e.number-t.number)}async function ye(e,t){await e.company.create(ve),await e.company.setOpeningBalance({cents:Q(3e3),on:n(t,-150)});let r=[`Ana`,`Bruno`,`Carla`,`Diego`,`Elisa`,`Fábio`,`Gabriela`,`Henrique`],i={};for(let[t,n]of r.entries())i[n]=(await e.clients.create({name:`${n} Exemplo`,email:`${n.toLowerCase().replace(`á`,`a`)}@${Z}`,phone:`(00) 90000-000${t+1}`,notes:t===0?`Cliente de exemplo: prefere receber a proposta por e-mail.`:void 0})).id;await e.clients.setStatus(i.Henrique,`arquivado`);let a=[[`Logotipo`,`un`,Q(950),Q(320)],[`Identidade visual completa`,`un`,Q(3200),Q(1100)],[`Site institucional`,`un`,Q(5400),Q(1900)],[`Manutenção mensal do site`,`mês`,Q(300),Q(80)],[`Consultoria de marca`,`hora`,Q(180),Q(40)],[`Cartões de visita (milheiro)`,`un`,Q(260),Q(150)]];for(let[t,n,r,i]of a)await e.services.create({name:t,unit:n,basePriceCents:r,estCostCents:i});let o=(r,a,o,s)=>e.quotes.save({clientId:i[r],validUntil:n(t,o),terms:`Pagamento conforme o plano combinado. Valores sujeitos a alteração se o escopo mudar.`,discount:s?{kind:`percent`,bps:s.bps}:{kind:`none`},items:a.map(([e,t,n])=>({description:e,quantityMilli:t,unitPriceCents:n}))}),s=async(r,i)=>e.receivables.registerPayment({receivableId:r.id,amountCents:i.cents??r.amountCents-r.paidCents,paidOn:n(t,-i.diasAtras),method:i.forma??`pix`}),c=await $(e,await o(`Ana`,[[`Identidade visual completa`,1e3,Q(3200)]],15),{sinal:{cents:Q(1200),venceEmDias:-80},parcelas:2,primeiraEmDias:-50},t);await s(c[0],{diasAtras:80}),await s(c[1],{diasAtras:50});let l=await e.receivables.registerPayment({receivableId:c[2].id,amountCents:Q(900),paidOn:n(t,-21),method:`pix`});await e.receivables.reversePayment(l,{paidOn:n(t,-20),note:`Valor lançado errado`}),await s(c[2],{diasAtras:19});let u=await $(e,await o(`Bruno`,[[`Site institucional`,1e3,Q(5400)],[`Cartões de visita (milheiro)`,2e3,Q(260)]],20,{bps:500}),{sinal:{cents:Q(1800),venceEmDias:-45},parcelas:3,primeiraEmDias:-15},t);await s(u[0],{diasAtras:45}),await s(u[1],{diasAtras:14,cents:Q(600)});let d=await $(e,await o(`Carla`,[[`Manutenção mensal do site`,6e3,Q(300)]],10),{parcelas:1,primeiraEmDias:-6},t);await e.collection.setState({receivableId:d[0].id,state:`mensagem_preparada`}),await e.collection.setState({receivableId:d[0].id,state:`enviada`,note:`Mandei a cobrança no WhatsApp (exemplo).`});let f=await $(e,await o(`Diego`,[[`Logotipo`,1e3,Q(950)]],12),{parcelas:1,primeiraEmDias:10},t);await e.collection.setState({receivableId:f[0].id,state:`agendada`,scheduledFor:n(t,8)}),await e.quotes.transition(await o(`Elisa`,[[`Site institucional`,1e3,Q(2400)]],12),`enviado`),await e.quotes.transition(await o(`Fábio`,[[`Consultoria de marca`,4e3,Q(180)],[`Logotipo`,1e3,Q(60)]],9),`enviado`),await o(`Gabriela`,[[`Cartões de visita (milheiro)`,3e3,Q(260)]],15);let p=await o(`Bruno`,[[`Consultoria de marca`,2e3,Q(180)]],15);await e.quotes.transition(p,`enviado`),await e.quotes.transition(p,`recusado`);let m=[[`Aluguel da sala`,`aluguel`,Q(1200)],[`Programa de design`,`servicos`,Q(89,90)],[`DAS (imposto do MEI)`,`impostos`,Q(71)]];for(let[r,i,a]of m)await e.expenses.saveSeries({description:r,category:i,amountCents:a,dueDate:n(t,-150)},6);await e.expenses.pay(await e.expenses.save(void 0,{description:`Papelaria e materiais`,category:`materiais`,amountCents:Q(142,30),dueDate:n(t,-40)}),{paidOn:n(t,-40),method:`cartao`}),await e.expenses.pay(await e.expenses.save(void 0,{description:`Retirada do mês`,category:`retirada`,amountCents:Q(1500),dueDate:n(t,-25)}),{paidOn:n(t,-25),method:`pix`}),await e.expenses.save(void 0,{description:`Renovação do domínio do site`,category:`servicos`,amountCents:Q(40),dueDate:n(t,20)});for(let r of await e.expenses.list())r.dueDate<n(t,-3)&&r.paidCents===0&&await e.expenses.pay(r.id,{paidOn:r.dueDate,method:`transferencia`});let h=[[`Venda de 10 cartões avulsos`,`venda`,Q(240),-70],[`Ajuste rápido em arquivo de impressão`,`servico_avulso`,Q(180),-42],[`Venda de adesivos`,`venda`,Q(95),-21],[`Aula particular de design`,`outros`,Q(60),-9]];for(let[r,i,a,o]of h)await e.incomes.save({description:r,category:i,amountCents:a,receivedOn:n(t,o),confirmed:!0});let g=await e.incomes.save({description:`Venda lançada em duplicidade`,category:`venda`,amountCents:Q(150),receivedOn:n(t,-30),confirmed:!0});await e.incomes.reverse(g,{paidOn:n(t,-29),note:`Lancei duas vezes`}),await e.tasks.save(void 0,{title:`Ligar para a Carla sobre a parcela atrasada`,dueDate:n(t,1),clientId:i.Carla,notes:`Exemplo de lembrete ligado a um cliente.`}),await e.tasks.save(void 0,{title:`Enviar o orçamento revisado para a Elisa`,dueDate:n(t,3),clientId:i.Elisa});let _=await e.tasks.save(void 0,{title:`Conferir as despesas do mês passado`,dueDate:n(t,-5)});await e.tasks.setDone(_,!0)}var be=`nap-banco-demo`;async function xe(n){let o;try{await _e(be);let{PGlite:i}=await t(async()=>{let{PGlite:e}=await import(`./dist-C-RRW9Dt.js`);return{PGlite:e}},__vite__mapDeps([0,1,2]),import.meta.url);o=new i(`idb://${s}`),await o.waitReady,await ge(o,X);let c=I(o,X,()=>{});if(!await c.company.current())try{await ye(c,e(new Date))}catch(e){throw await o.close().catch(()=>void 0),o=void 0,await r(),e}let l=o;return a(()=>l.close()),I(o,X,n)}catch(e){throw e instanceof i?e:new i(`indisponivel`,`Não foi possível preparar a demonstração neste navegador. Ele pode estar em modo privado ou sem espaço. Recarregue a página para tentar de novo.`,void 0,e)}}export{xe as abrirDadosDaDemonstracao};
